@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br><br><br><br><br>
+    <h1>{{ 'Create your account'|trans }}</h1>
+    <ul>
+        {% for error in errors %}
+            <li>{{ error.message }}</li>
+        {% endfor %}
+    </ul> <br>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'Recover password'|trans }}{% endblock %}
+
+{% block body %}
+
+
+    <!-- Begin page -->
+    <div class="accountbg" style="background: url('assets/images/bg-1.jpg');background-size: cover;background-position: center;"></div>
+
+    <div class="wrapper-page account-page-full">
+
+        <div class="card">
+            <div class="card-block">
+
+                <div class="account-box">
+
+                    <div class="card-box p-5">
+                        <h2 class="text-uppercase text-center pb-4">
+                            <a href="{{ path('security_login') }}" class="text-success">
+                                <span><img src="assets/images/logo_light.png" alt="" height="26"></span>
+                            </a>
+                        </h2>
+
+                        <div class="text-center">
+                            <p class="text-muted">Enter your email address and we'll send you an email with instructions to reset your password.  </p>
+                        </div>
+
+                        <form class="form-horizontal" action="#">
+
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <label for="emailaddress">Email address</label>
+                                    <input name="email" class="form-control" type="email" required="" placeholder="{{ 'E-mail'|trans }}">
+                                </div>
+                            </div>
+
+
+                            <input type="hidden" name="_method" value="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token('password_recovery') }}">
+
+                            <div class="form-group row text-center">
+                                <div class="col-12">
+                                    <button class="btn btn-block btn-custom waves-effect waves-light" type="submit"> {{ 'Recover password'|trans }} </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div class="row m-t-50">
+                            <div class="col-sm-12 text-center">
+                                <p class="text-muted">Back to <a href="{{ path('security_login') }}" class="text-dark ml-1"><b>Login</b></a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}

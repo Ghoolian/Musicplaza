@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}Musicplaza Home{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <div class="container-fluid">
+
+            <!-- Page-Title -->
+            <div class="row">
+                <h4 class="page-title">Starter</h4>
+            </div>
+            <!-- end page title end breadcrumb -->
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+    {% if app.user %}
+    <div class="mb-3">
+        You are logged in as {{ app.user.username }}, <a href="{{ path('security_logout') }}">Logout</a>
+    </div>
+    {% endif %}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    2018 - 2019 Â© Highdmin. <span class="d-none d-sm-inline-block"> - Coderthemes.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- jQuery  -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/waves.js') }}"></script>
+    <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+
+    <!-- App js -->
+    <script src="{{ asset('js/jquery.core.js') }}"></script>
+    <script src="{{ asset('js/jquery.app.js') }}"></script>
+
+{% endblock %}

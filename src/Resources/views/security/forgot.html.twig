@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'Recover password'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'Recover password'|trans }}</h1>
+
+    <form  action="{{ path('security_forgot_password') }}" method="post">
+
+        <input type="email" name="email" required placeholder="{{ 'E-mail'|trans }}">
+
+        <input type="hidden" name="_method" value="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token('password_recovery') }}">
+
+        <a class="btn btn-secondary btn-block" href="{{ path('security_login') }}">{{ 'Go back'|trans }}</a>
+        <button type="submit" class="btn btn-primary btn-block">{{ 'Recover password'|trans }} </button>
+
+    </form>
+{% endblock %}
