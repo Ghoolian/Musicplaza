@@ -12,7 +12,11 @@ use App\Repository\Authentication\ClusterRepository;
 use App\Repository\Authentication\PasswordRecoveryRepository;
 use App\Repository\Authentication\UserRepository;
 use App\Service\SecurityNotificationService;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Mime\Address;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +26,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Mailer\MailerInterface;
 
 /**
  * Class SecurityController
@@ -82,6 +87,28 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
         $errors = '';
 
+        /** @var UploadedFile $profilepicture */
+        $profilepicture = $form->get('profilepicture')->getData();
+        if ($profilepicture) {
+            $originalFilename = pathinfo($profilepicture->getClientOriginalName(), PATHINFO_FILENAME);
+            // this is needed to safely include the file name as part of the URL
+            $newFilename = bin2hex(openssl_random_pseudo_bytes(16)).'.'.$profilepicture->guessExtension();
+
+            // Move the file to the directory where profile pictures are stored
+            try {
+                $profilepicture->move(
+                    $this->getParameter('profilepicture_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+
+            // updates the 'Profile picture Filename' property to store the image file name
+            // instead of its contents
+            $user->setProfilePicture($newFilename);
+        }
+
         if($form->isSubmitted() && $form->isValid()) {
 
             $errors = $validator->validate($user);
@@ -92,7 +119,6 @@ class SecurityController extends AbstractController
             if($form->get('password')->getData() == $form->get('password_verify')->getData()) {
 
                 $user->setPassword($passwordEncoder->encodePassword($user, $form->get('password')->getData()));
-
                 $this->getDoctrine()->getManager()->persist($user);
                 $this->getDoctrine()->getManager()->flush();
 
@@ -103,6 +129,35 @@ class SecurityController extends AbstractController
             $this->addFlash('danger', $translator->trans('Passwords do not match'));
 
         }
+        /**
+         * Display & process form to request an account register.
+         *
+         * @Route("check_register", name="app_check_register")
+         * @param Request $request
+         * @param MailerInterface $mailer
+         * @return Response
+         */
+        $email = (new Email())
+            ->from(new Address('pwmaintenancemediatastisch@gmail.com', 'Mediatastisch'))
+            ->to($user->getEmail())
+            ->subject('Your account authentication request')
+            ->htmlTemplate('security/email.html.twig')
+            ->context([
+                'authToken' => $token,
+            ]);
+        try {
+            $mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            $this->addFlash("failure", "Error in sending activation e-mail. Please try again.");
+        }
+        return($this->render('security/check_register.html.twig'));
+
+//            return new Response($this->render('security/check_register.html.twig', [
+//                'registrationForm' => $form->createView(),
+//            ]));
+
+
+        //Email functie test end
 
         return $this->render('security/authentication/register.html.twig', ['form' => $form->createView(), 'errors' => $errors]);
     }

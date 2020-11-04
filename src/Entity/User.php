@@ -69,6 +69,31 @@ class User implements UserInterface
      */
     private $passwordRecoveries;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $profilepicture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true))
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ApiToken;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $ActivationCheck;
+
 
     public function __construct()
     {
@@ -282,5 +307,63 @@ class User implements UserInterface
 
         return $this;
     }
+    public function getProfilepicture(): ?string
+    {
+        return $this->profilepicture;
+    }
 
+    public function setProfilepicture(string $Profilepicture): self
+    {
+        $this->profilepicture = $Profilepicture;
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(?\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    public function getApiToken(): ?string
+    {
+        return $this->ApiToken;
+    }
+
+    public function setApiToken(string $ApiToken): self
+    {
+        $this->ApiToken = $ApiToken;
+
+        return $this;
+    }
+
+    public function getActivationCheck(): ?bool
+    {
+        return $this->ActivationCheck;
+    }
+
+    public function setActivationCheck(bool $ActivationCheck): self
+    {
+        $this->ActivationCheck = $ActivationCheck;
+
+        return $this;
+    }
 }
