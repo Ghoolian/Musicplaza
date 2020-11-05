@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201105151826.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ProfileType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/authentication/check_register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/authentication/check_register.html.twig" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +163,13 @@
       <workItem from="1604054308617" duration="3070000" />
       <workItem from="1604064939719" duration="3289000" />
       <workItem from="1604312873860" duration="10890000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1604391189903" duration="8559000" />
+      <workItem from="1604478810921" duration="9814000" />
+      <workItem from="1604564731024" duration="980000" />
+      <workItem from="1604566846419" duration="11532000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -174,6 +197,7 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604330856872" />
+<<<<<<< Updated upstream
     <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604075160630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -186,5 +210,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604319973301" />
+=======
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604591231440">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604591231440" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604500257336">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604500257336" />
+    <state x="664" y="242" key="NewPhpClassDialog" timestamp="1604591677113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="664" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604591677113" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1604391242449">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604391242449" />
+    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1604590349121">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604590349121" />
+>>>>>>> Stashed changes
   </component>
 </project>

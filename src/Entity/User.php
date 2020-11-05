@@ -69,6 +69,64 @@ class User implements UserInterface
      */
     private $passwordRecoveries;
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $profilepicture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true))
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ActivationToken;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $ActivationCheck;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Playstation;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Nintendo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Xbox;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Twitter;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Discord;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Facebook;
+
+>>>>>>> Stashed changes
 
     public function __construct()
     {
@@ -283,4 +341,102 @@ class User implements UserInterface
         return $this;
     }
 
+<<<<<<< Updated upstream
+=======
+    public function getActivationToken(): ?string
+    {
+        return $this->ActivationToken;
+    }
+
+    public function setActivationToken(string $ActivationToken): self
+    {
+        $this->ActivationToken = $ActivationToken;
+
+        return $this;
+    }
+
+    public function getActivationCheck(): ?bool
+    {
+        return $this->ActivationCheck;
+    }
+
+    public function setActivationCheck(bool $ActivationCheck): self
+    {
+        $this->ActivationCheck = $ActivationCheck;
+
+        return $this;
+    }
+
+    public function getPlaystation(): ?string
+    {
+        return $this->Playstation;
+    }
+
+    public function setPlaystation(?string $Playstation): self
+    {
+        $this->Playstation = $Playstation;
+
+        return $this;
+    }
+
+    public function getNintendo(): ?string
+    {
+        return $this->Nintendo;
+    }
+
+    public function setNintendo(?string $Nintendo): self
+    {
+        $this->Nintendo = $Nintendo;
+
+        return $this;
+    }
+
+    public function getXbox(): ?string
+    {
+        return $this->Xbox;
+    }
+
+    public function setXbox(?string $Xbox): self
+    {
+        $this->Xbox = $Xbox;
+
+        return $this;
+    }
+
+    public function getTwitter(): ?string
+    {
+        return $this->Twitter;
+    }
+
+    public function setTwitter(?string $Twitter): self
+    {
+        $this->Twitter = $Twitter;
+
+        return $this;
+    }
+
+    public function getDiscord(): ?string
+    {
+        return $this->Discord;
+    }
+
+    public function setDiscord(?string $Discord): self
+    {
+        $this->Discord = $Discord;
+
+        return $this;
+    }
+
+    public function getFacebook(): ?string
+    {
+        return $this->Facebook;
+    }
+
+    public function setFacebook(?string $Facebook): self
+    {
+        $this->Facebook = $Facebook;
+
+        return $this;
+    }
+>>>>>>> Stashed changes
 }

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block body %}
+
+    <h1>{{ user.name }} Profile</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Naam</th>
+            <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+            <th>E-mail </th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>{{ user.gender }}</td>
+        </tr>
+        <tr>
+            <th>Birthday </th>
+            <td>{{ user.birthday ? user.birthday|date('Y-m-d') : ''  }}</td>
+        </tr>
+        <tr>
+            <th>Playstation ID </th>
+            <td>{{ user.playstation }}</td>
+        </tr>
+        <tr>
+            <th>Nintendo Network ID </th>
+            <td>{{ user.nintendo }}</td>
+        </tr>
+        <tr>
+            <th>X-box Live </th>
+            <td>{{ user.xbox }}</td>
+        </tr>
+        <tr>
+            <th>Twitter </th>
+            <td>{{ user.twitter }}</td>
+        </tr>
+        <tr>
+            <th>Discord </th>
+            <td>{{ user.discord }}</td>
+        </tr>
+        <tr>
+            <th>Facebook </th>
+            <td>{{ user.facebook }}</td>
+        </tr>
+        {#        <tr>#}
+        {#            <th>Numbers</th>#}
+        {#            {% for number in album.numberCollectie %}#}
+        {#                <td>{{ number.naam }}</td>#}
+        {#            {% endfor %}#}
+        {#        </tr>#}
+        </tbody>
+    </table>
+    {% if app.user.isSuper == "1" %}
+
+
+        <td><a href="{{ path('profile_edit', {'id': user.id}) }}">Edit</a></td>
+
+    {% endif %}
+    <a href="{{ path('home') }}">Back to home</a>
+
+
+{% endblock %}

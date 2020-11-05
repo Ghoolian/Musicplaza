@@ -98,51 +98,19 @@
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#"><i class="icon-layers"></i>Login</a>
-                        <ul class="submenu">
-                            <li><a href="{{ path('security_login') }}">Login</a></li>
-                            <li><a href="{{ path('security_register') }}">Register</a></li>
-                        </ul>
+                        <a href="{{ path('security_register') }}"><i class="icon-layers"></i>Register</a>
                     </li>
+                    {% if app.user %}
 
                     <li class="has-submenu">
-                        <a href="#"><i class="icon-briefcase"></i>Numbers</a>
-                        <ul class="submenu">
-                            <li>
-                                <ul>
-{#                                    <li><a href="{{ path('') }}">Read</a></li>#}
-{#                                    <li><a href="{{ path('') }}">Create</a></li>#}
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="{{ path('profile_show',{'id': app.user.id}) }}"><i class="icon-briefcase"></i>Profile</a>
                     </li>
+                    {% endif %}
 
                     <li class="has-submenu">
-                        <a href="#"><i class="icon-fire"></i>Albums</a>
-                        <ul class="submenu">
-                            <li>
-                                <ul>
-{#                                    <li><a href="{{ path('') }}">Read</a></li>#}
-{#                                    <li><a href="{{ path('') }}">Create</a></li>#}
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="#"><i class="icon-fire"></i>Add friends</a>
+
                     </li>
-
-
-                    <li class="has-submenu">
-                        <a href="#"><i class="icon-fire"></i>Artiesten</a>
-                        <ul class="submenu">
-                            <li>
-                                <ul>
-{#                                    <li><<a href="{{ path('') }}">Read</a></li>#}
-{#                                    <li><a href="{{ path('') }}">Create</a></li>#}
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-
 
                 </ul>
                 <!-- End navigation menu -->
