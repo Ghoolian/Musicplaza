@@ -2,28 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201104153311.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/bccd841280557bafddd964f86614d259.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201104161225.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/2a77224f850457b9a7a340c619728d57.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/5107811aaf8901550657075613201b79.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/7c44a2cf7e1e6c33a4dab974bc80b8b6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/8436122a2ed3983239e32c7df09ca846.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/authentication/activate.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/authentication/check_register.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/authentication/email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Musicplaza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicplaza.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/album/1044deb4a105a7d87acc156ba0893b7a.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/album/3506b9905c8c9255bf86e996b5b90a54.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/album/920f63b5edab8b2ca72e2678514329c4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/album/d58a2ba30361e94a1eeaf645357ea0b5.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/config/annotations.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/config/security.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/config/services.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/views/email/forgot-password.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/views/security/forgot.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/views/security/login.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/views/security/recover-password.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/views/security/register.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +135,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jau1K3LbdvKs6AYKpMqnhan8b7" />
@@ -175,7 +173,9 @@
       <workItem from="1604064939719" duration="3289000" />
       <workItem from="1604312873860" duration="10890000" />
       <workItem from="1604391189903" duration="8559000" />
-      <workItem from="1604478810921" duration="9176000" />
+      <workItem from="1604478810921" duration="9814000" />
+      <workItem from="1604564731024" duration="980000" />
+      <workItem from="1604566846419" duration="5133000" />
     </task>
     <servers />
   </component>
@@ -225,9 +225,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604391242449" />
-    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1604484608079">
+    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1604573727280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604484608079" />
+    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604573727280" />
   </component>
 </project>

@@ -87,7 +87,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $ApiToken;
+    private $ActivationToken;
 
     /**
      * @ORM\Column(type="boolean")
@@ -102,6 +102,7 @@ class User implements UserInterface
         $this->is_super = false;
         $this->clusters = new ArrayCollection();
         $this->passwordRecoveries = new ArrayCollection();
+        $this->ActivationCheck = "0";
     }
 
     public function getId(): ?int
@@ -343,14 +344,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getApiToken(): ?string
+    public function getActivationToken(): ?string
     {
-        return $this->ApiToken;
+        return $this->ActivationToken;
     }
 
-    public function setApiToken(string $ApiToken): self
+    public function setActivationToken(string $ActivationToken): self
     {
-        $this->ApiToken = $ApiToken;
+        $this->ActivationToken = $ActivationToken;
 
         return $this;
     }
