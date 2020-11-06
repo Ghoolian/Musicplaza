@@ -69,8 +69,6 @@ class User implements UserInterface
      */
     private $passwordRecoveries;
 
-<<<<<<< Updated upstream
-=======
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -126,7 +124,11 @@ class User implements UserInterface
      */
     private $Facebook;
 
->>>>>>> Stashed changes
+    /**
+     * @ORM\OneToMany(targetEntity=Posts::class, mappedBy="User", orphanRemoval=true)
+     */
+    private $posts;
+
 
     public function __construct()
     {
@@ -135,6 +137,9 @@ class User implements UserInterface
         $this->is_super = false;
         $this->clusters = new ArrayCollection();
         $this->passwordRecoveries = new ArrayCollection();
+        $this->ActivationCheck = "0";
+        $this->posts = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -340,9 +345,42 @@ class User implements UserInterface
 
         return $this;
     }
+    public function getProfilepicture(): ?string
+    {
+        return $this->profilepicture;
+    }
 
-<<<<<<< Updated upstream
-=======
+    public function setProfilepicture(string $Profilepicture): self
+    {
+        $this->profilepicture = $Profilepicture;
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(?\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
     public function getActivationToken(): ?string
     {
         return $this->ActivationToken;
@@ -438,5 +476,34 @@ class User implements UserInterface
 
         return $this;
     }
->>>>>>> Stashed changes
+
+    /**
+     * @return Collection|Posts[]
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Posts $post): self
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts[] = $post;
+            $post->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Posts $post): self
+    {
+        if ($this->posts->removeElement($post)) {
+            // set the owning side to null (unless already changed)
+            if ($post->getUser() === $this) {
+                $post->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 }

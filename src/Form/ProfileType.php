@@ -50,12 +50,12 @@ class ProfileType extends AbstractType
                 ],
             ])
 
-            ->add('playstation', TextType::class)
-            ->add('nintendo', TextType::class)
-            ->add('xbox', TextType::class)
-            ->add('twitter', TextType::class)
-            ->add('discord', TextType::class)
-            ->add('facebook', TextType::class)
+            ->add('playstation', TextType::class, ['required' => false])
+            ->add('nintendo', TextType::class, ['required' => false])
+            ->add('xbox', TextType::class, ['required' => false])
+            ->add('twitter', TextType::class, ['required' => false])
+            ->add('discord', TextType::class, ['required' => false])
+            ->add('facebook', TextType::class, ['required' => false])
             ->add('password', PasswordType::class)
             ->add('password_verify', PasswordType::class, [
                 'mapped' => false

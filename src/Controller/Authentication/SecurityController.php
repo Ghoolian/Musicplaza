@@ -12,7 +12,11 @@ use App\Repository\Authentication\ClusterRepository;
 use App\Repository\Authentication\PasswordRecoveryRepository;
 use App\Repository\Authentication\UserRepository;
 use App\Service\SecurityNotificationService;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Mime\Address;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +26,10 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+
 
 /**
  * Class SecurityController
@@ -30,6 +38,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class SecurityController extends AbstractController
 {
+
+    private $mailer;
+
+
+    public function __construct(MailerInterface $mailer)
+    {
+        $this->mailer = $mailer;
+    }
 
     /**
      * @Route("/login", name="login")
@@ -61,6 +77,7 @@ class SecurityController extends AbstractController
      * @param ClusterRepository $clusterRepository
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param ValidatorInterface $validator
+     * @param MailerInterface $mailer
      * @return Response
      */
     public function register(
@@ -68,10 +85,12 @@ class SecurityController extends AbstractController
         TranslatorInterface $translator,
         ClusterRepository $clusterRepository,
         UserPasswordEncoderInterface $passwordEncoder,
-        ValidatorInterface $validator
-    ) {
+        ValidatorInterface $validator,
+        MailerInterface $mailer
+    )
+    {
 
-        if($this->checkAuthentication($translator)) {
+        if ($this->checkAuthentication($translator)) {
             // TODO Redirect to system dashboard
             // Please use return $this->render() to set a template.
             throw new NotImplementedException('Please specify a route for login');
@@ -82,31 +101,82 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
         $errors = '';
 
-        if($form->isSubmitted() && $form->isValid()) {
+        /** @var UploadedFile $profilepicture */
+        $profilepicture = $form->get('profilepicture')->getData();
+        if ($profilepicture) {
+            $originalFilename = pathinfo($profilepicture->getClientOriginalName(), PATHINFO_FILENAME);
+            // this is needed to safely include the file name as part of the URL
+            $newFilename = bin2hex(openssl_random_pseudo_bytes(16)) . '.' . $profilepicture->guessExtension();
+
+            // Move the file to the directory where profile pictures are stored
+            try {
+                $profilepicture->move(
+                    $this->getParameter('profilepicture_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+
+            // updates the 'Profile picture Filename' property to store the image file name
+            // instead of its contents
+            $user->setProfilePicture($newFilename);
+        }
+
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $errors = $validator->validate($user);
 
             $cluster = $clusterRepository->findOneBy(['name' => 'User']);
             $user->addCluster($cluster);
 
-            if($form->get('password')->getData() == $form->get('password_verify')->getData()) {
+            if ($form->get('password')->getData() == $form->get('password_verify')->getData()) {
 
                 $user->setPassword($passwordEncoder->encodePassword($user, $form->get('password')->getData()));
+                $token = bin2hex(openssl_random_pseudo_bytes(16));
 
+
+                $user->setActivationToken($token);
                 $this->getDoctrine()->getManager()->persist($user);
                 $this->getDoctrine()->getManager()->flush();
 
-                $this->addFlash('success', $translator->trans('The account has been created'));
-                return $this->redirectToRoute('security_login');
+                /**
+                 * Display & process form to request an account register.
+                 *
+                 * @Route("check_register", name="app_check_register")
+                 * @param Request $request
+                 * @param MailerInterface $mailer
+                 * @return Response
+                 */
+                $email = (new TemplatedEmail())
+                    ->from(new Address('pwmaintenancemediatastisch@gmail.com', 'Mediatastisch'))
+                    ->to($user->getEmail())
+                    ->subject('Your account authentication request')
+                    ->htmlTemplate('security/authentication/email.html.twig')
+                    ->context([
+                        'activationToken' => $token,
+                    ]);
+                try {
+                    $mailer->send($email);
+                } catch (TransportExceptionInterface $e) {
+                    $this->addFlash("failure", "Error in sending activation e-mail. Please try again.");
+                }
+                return ($this->render('security/authentication/check_register.html.twig'));
+
+//            return new Response($this->render('security/check_register.html.twig', [
+//                'registrationForm' => $form->createView(),
+//            ]));
+
+
+                //Email functie test end
             }
 
             $this->addFlash('danger', $translator->trans('Passwords do not match'));
 
-        }
 
+        }
         return $this->render('security/authentication/register.html.twig', ['form' => $form->createView(), 'errors' => $errors]);
     }
-
     /**
      * @Route("/forgot-password", name="forgot_password")
      * @param TranslatorInterface $translator
@@ -219,5 +289,25 @@ class SecurityController extends AbstractController
         }
 
         return false;
+    }
+    /**
+     * @Route("/activate/{token}", name="app_activate")
+     */
+    public function activate($token)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(User::Class);
+        $user = $repository->findOneBy(['activationToken' => $token]);
+        if ($user != null) {
+            $user->setActivationCheck(true);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            return $this->render('security/authentication/activate.html.twig');
+        }
+        else {
+            $this->addFlash("failure", "Error; no account found. Please try again or contact the creators.");
+            return $this->redirectToRoute('home');
+        }
     }
 }
