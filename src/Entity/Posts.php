@@ -28,6 +28,16 @@ class Posts
      */
     private $User;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    public function __construct(){
+        $this->created = new \DateTime('now');
+        $this->getUser();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +63,18 @@ class Posts
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function getCreated(): ?\DateTimeInterface
+    {
+        return $this->created;
+    }
+
+    public function setCreated(\DateTimeInterface $created): self
+    {
+        $this->created = $created;
 
         return $this;
     }
