@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class ProfileController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="profile_show", methods={"GET"})
+     * @Route("/profile/{id}", name="profile_show", methods={"GET"})
      * @param User $user
      * @return Response
      */

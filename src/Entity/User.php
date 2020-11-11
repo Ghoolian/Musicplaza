@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Entity;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -126,19 +128,26 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Posts::class, mappedBy="User", orphanRemoval=true)
+     * @ORM\OrderBy({"created" = "DESC"})
      */
     private $posts;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $replies;
 
 
     public function __construct()
     {
-        $this->created = new \DateTime('now');
-        $this->updated = new \DateTime('now');
+        $this->created = new DateTime('now');
+        $this->updated = new DateTime('now');
         $this->is_super = false;
         $this->clusters = new ArrayCollection();
         $this->passwordRecoveries = new ArrayCollection();
         $this->ActivationCheck = "0";
         $this->posts = new ArrayCollection();
+        $this->replies = new ArrayCollection();
 
     }
 
@@ -185,36 +194,36 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCreated(): ?\DateTimeInterface
+    public function getCreated(): ?DateTimeInterface
     {
         return $this->created;
     }
 
-    public function setCreated(\DateTimeInterface $created): self
+    public function setCreated(DateTimeInterface $created): self
     {
         $this->created = $created;
 
         return $this;
     }
 
-    public function getDeleted(): ?\DateTimeInterface
+    public function getDeleted(): ?DateTimeInterface
     {
         return $this->deleted;
     }
 
-    public function setDeleted(?\DateTimeInterface $deleted): self
+    public function setDeleted(?DateTimeInterface $deleted): self
     {
         $this->deleted = $deleted;
 
         return $this;
     }
 
-    public function getUpdated(): ?\DateTimeInterface
+    public function getUpdated(): ?DateTimeInterface
     {
         return $this->updated;
     }
 
-    public function setUpdated(\DateTimeInterface $updated): self
+    public function setUpdated(DateTimeInterface $updated): self
     {
         $this->updated = $updated;
 
@@ -369,12 +378,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getBirthday(): ?\DateTimeInterface
+    public function getBirthday(): ?DateTimeInterface
     {
         return $this->birthday;
     }
 
-    public function setBirthday(?\DateTimeInterface $birthday): self
+    public function setBirthday(?DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
 
@@ -501,6 +510,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($post->getUser() === $this) {
                 $post->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Replies[]
+     */
+    public function getReplies(): Collection
+    {
+        return $this->replies;
+    }
+
+    public function addReply(Replies $reply): self
+    {
+        if (!$this->replies->contains($reply)) {
+            $this->replies[] = $reply;
+            $reply->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReply(Replies $reply): self
+    {
+        if ($this->replies->removeElement($reply)) {
+            // set the owning side to null (unless already changed)
+            if ($reply->getUser() === $this) {
+                $reply->setUser(null);
             }
         }
 

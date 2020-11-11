@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post {{ posts.id }}{% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <br/>
+    <tbody>
+    <tr>
+        <th>Text</th>
+        <td>{{ posts.text }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ posts.user.name }}</td>
+    </tr>
+    <tr>
+        <th>Date/Time</th>
+        <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
+    </tr>
+    </tbody>
+</table> <br/>
+    <h1>Create a new Reply</h1>
+    <td><a href="{{ path('replies_new', {'id': posts.id}) }}">New reply</a></td> <br/>
+    <br>
+{% endblock %}

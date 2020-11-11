@@ -52,45 +52,43 @@
             <th>Facebook </th>
             <td>{{ user.facebook }}</td>
         </tr>
-        {#        <tr>#}
-        {#            <th>Numbers</th>#}
-        {#            {% for number in album.numberCollectie %}#}
-        {#                <td>{{ number.naam }}</td>#}
-        {#            {% endfor %}#}
-        {#        </tr>#}
+
         </tbody>
     </table> <br/>
 
     <td><a href="{{ path('posts_new', {'user_id': user.id}) }}">New post</a></td> <br/>
+
     <h1>{{ user.name }}'s Posts</h1> <br/>
+
     <table class="table table-bordered mb-0">
     <thead class="thead-light">
     <tr>
-        {% if app.user.isSuper == "1" %}
-        {% elseif app.user.id == 'user_id' %}
+        <th>Text</th>
+        <th>Date/Time</th>
+        {% if app.user.isSuper == "1" or user.id == 'user_id'%}
+
             <th>Admin actions</th>
         {% endif %}
+        <th>Show</th>
     </tr>
     </thead>
     <tbody>
 
-    {% for posts in posts %}
+    {% for posts in user.posts %}
 <tr>
-    <td>{{ album.id }}</td>
-    <td>{{ album.name }}</td>
-    <td>{{ album.artist.name}} {{ album.artist.surname }}</td>
+    <td>{{ posts.text }}</td>
+    <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
 
-    <td>
-        {% for nummers in album.number %}
-            {{ nummers.name }}<br/>
-        {% endfor %}
-    </td>
-    {% if app.user.isSuper == "1" %}
+
+    {% if (app.user.isSuper == "1") or (app.user.id == 'user_id') %}
 
 
         <td><a href="{{ path('profile_edit', {'id': user.id}) }}">Edit</a></td> <br/>
 
     {% endif %}
+    <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+    {% endfor %}
+
     <a href="{{ path('home') }}">Back to home</a>
 
 

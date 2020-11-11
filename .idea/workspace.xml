@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201109081443.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/posts/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/posts/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/posts/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/f8cb43245f8430a6305074ca901f5be7.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Replies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/RepliesType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/RepliesRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/replies/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/replies/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Musicplaza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicplaza.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +136,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
       <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
     </include_path>
   </component>
@@ -140,12 +152,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Muzieksite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\src\Form" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\templates" />
       <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\src\Controller\Authentication" />
@@ -169,6 +185,8 @@
       <workItem from="1604651699051" duration="8847000" />
       <workItem from="1604678218005" duration="599000" />
       <workItem from="1604909592414" duration="10670000" />
+      <workItem from="1605002231800" duration="13947000" />
+      <workItem from="1605091939261" duration="14057000" />
     </task>
     <servers />
   </component>
@@ -198,22 +216,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604063956817" />
-    <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604330856872">
+    <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605101139421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604330856872" />
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604932677539">
+    <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605101139421" />
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605108525285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604932677539" />
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605108525285" />
+    <state x="706" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605099150972">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="706" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1605099150972" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604500257336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604500257336" />
-    <state x="664" y="242" key="NewPhpClassDialog" timestamp="1604677712847">
+    <state x="664" y="242" key="NewPhpClassDialog" timestamp="1605104501895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="664" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604677712847" />
+    <state x="664" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605104501895" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1604659018267">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -222,13 +244,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="595" y="106" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604670030629" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604670030630">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605009254051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604670030630" />
-    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1604936943986">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605009254051" />
+    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1605105706466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604936943986" />
+    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605105706466" />
   </component>
 </project>

@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\PostsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PostsRepository::class)
+ *
  */
 class Posts
 {
@@ -33,9 +36,15 @@ class Posts
      */
     private $created;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="post", orphanRemoval=true)
+     */
+    private $replies;
+
     public function __construct(){
         $this->created = new \DateTime('now');
         $this->getUser();
+        $this->replies = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +84,36 @@ class Posts
     public function setCreated(\DateTimeInterface $created): self
     {
         $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Replies[]
+     */
+    public function getReplies(): Collection
+    {
+        return $this->replies;
+    }
+
+    public function addReply(Replies $reply): self
+    {
+        if (!$this->replies->contains($reply)) {
+            $this->replies[] = $reply;
+            $reply->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReply(Replies $reply): self
+    {
+        if ($this->replies->removeElement($reply)) {
+            // set the owning side to null (unless already changed)
+            if ($reply->getPost() === $this) {
+                $reply->setPost(null);
+            }
+        }
 
         return $this;
     }
