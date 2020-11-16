@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Posts;
 use App\Entity\Replies;
+use App\Entity\Likes;
 use App\Form\PostType;
 use App\Form\RepliesType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -109,5 +110,41 @@ class PostController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/posts/{id}", name="Like", methods={"GET","POST"})
+     * @method("POST")
+     * @param Posts $posts
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function like(Posts $posts)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $likes = new likes();
+        $likes->setPost($posts);
+        $likes->setUser($this->getUser());
+        $entityManager->persist($likes);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('posts_show', [
+            'id' => $posts->getID(),
+        ]);
+    }
+    /**
+     * @Route("/posts/{id}", name="Unlike", methods={"GET","POST"})
+     * @method("POST")
+     * @param Posts $posts
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function removelikes(Posts $posts){
+        $entityManager = $this->getDoctrine()->getManager();
+        $likes = new likes();
+        $likes->setPost($posts);
+        $likes->setUser($this->getUser());
+        $entityManager->remove($likes);
+        $entityManager->flush();
+        return $this->redirectToRoute('posts_show', [
+            'id' => $posts->getID(),
+        ]);
+    }
 
 }

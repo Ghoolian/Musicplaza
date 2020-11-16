@@ -20,8 +20,25 @@
         <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
     </tr>
     </tbody>
-</table> <br/>
+    </table>
+<br/>
+    This post is liked by:
+    {% for likes in posts.likes %}
+    <td>{{ likes.user.username}},</td>
+
+    {% endfor %}
+    {% if app.user.likes in posts.likes %}
+        <form action="{{ path('Unlike', {'id': posts.id}) }}">
+        <input type="submit" value="Unlike"><br/>
+        <br>
+    {% else %}
+            <form action="{{ path('Like', {'id': posts.id}) }}">
+            <input type="submit" value="like"><br/>
+            <br>
+    {% endif %}
+
     <h1>Create a new Reply</h1>
-    <td><a href="{{ path('replies_new', {'id': posts.id}) }}">New reply</a></td> <br/>
+    <a href="{{ path('replies_new', {'id': posts.id}) }}">New reply</a> <br/>
+    </form>
     <br>
 {% endblock %}

@@ -41,10 +41,16 @@ class Posts
      */
     private $replies;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="Post", orphanRemoval=true)
+     */
+    private $likes;
+
     public function __construct(){
         $this->created = new \DateTime('now');
         $this->getUser();
         $this->replies = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -112,6 +118,36 @@ class Posts
             // set the owning side to null (unless already changed)
             if ($reply->getPost() === $this) {
                 $reply->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Likes[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Likes $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Likes $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getPost() === $this) {
+                $like->setPost(null);
             }
         }
 

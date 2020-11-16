@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/f8cb43245f8430a6305074ca901f5be7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Replies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/RepliesType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/RepliesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/replies/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/replies/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Musicplaza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicplaza.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201112154650.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Likes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/LikesRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +174,10 @@
       <workItem from="1604678218005" duration="599000" />
       <workItem from="1604909592414" duration="10670000" />
       <workItem from="1605002231800" duration="13947000" />
-      <workItem from="1605091939261" duration="14057000" />
+      <workItem from="1605091939261" duration="14324000" />
+      <workItem from="1605173141784" duration="10003000" />
+      <workItem from="1605256198085" duration="5423000" />
+      <workItem from="1605515235405" duration="6332000" />
     </task>
     <servers />
   </component>
@@ -220,10 +211,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605101139421" />
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605108525285">
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605193016142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605108525285" />
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605193016142" />
     <state x="706" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605099150972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -248,9 +239,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605009254051" />
-    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1605105706466">
+    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1605196249572">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605105706466" />
+    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605196249572" />
   </component>
 </project>

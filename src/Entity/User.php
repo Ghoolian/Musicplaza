@@ -137,6 +137,11 @@ class User implements UserInterface
      */
     private $replies;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Likes::class, mappedBy="User")
+     */
+    private $likes;
+
 
     public function __construct()
     {
@@ -148,6 +153,7 @@ class User implements UserInterface
         $this->ActivationCheck = "0";
         $this->posts = new ArrayCollection();
         $this->replies = new ArrayCollection();
+        $this->likes = new ArrayCollection();
 
     }
 
@@ -541,6 +547,33 @@ class User implements UserInterface
             if ($reply->getUser() === $this) {
                 $reply->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Likes[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Likes $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Likes $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            $like->removeUser($this);
         }
 
         return $this;
