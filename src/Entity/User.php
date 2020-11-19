@@ -138,7 +138,7 @@ class User implements UserInterface
     private $replies;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Likes::class, mappedBy="User")
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="User", orphanRemoval=true)
      */
     private $likes;
 
@@ -552,6 +552,21 @@ class User implements UserInterface
         return $this;
     }
 
+
+
+
+
+    public function hasLiked(Posts $posts)
+    {
+
+        foreach ($this->likes as $l) {
+            if ($posts->getLikes()->contains($l)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * @return Collection|Likes[]
      */
@@ -564,7 +579,7 @@ class User implements UserInterface
     {
         if (!$this->likes->contains($like)) {
             $this->likes[] = $like;
-            $like->addUser($this);
+            $like->setUser($this);
         }
 
         return $this;
@@ -573,9 +588,13 @@ class User implements UserInterface
     public function removeLike(Likes $like): self
     {
         if ($this->likes->removeElement($like)) {
-            $like->removeUser($this);
+            // set the owning side to null (unless already changed)
+            if ($like->getUser() === $this) {
+                $like->setUser(null);
+            }
         }
 
         return $this;
     }
+
 }

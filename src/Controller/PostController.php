@@ -24,6 +24,7 @@ class PostController extends AbstractController
      */
     public function show(Posts $posts): Response
     {
+
         return $this->render('posts/show.html.twig', [
             'posts' => $posts
         ]);
@@ -124,24 +125,24 @@ class PostController extends AbstractController
         $likes->setUser($this->getUser());
         $entityManager->persist($likes);
         $entityManager->flush();
-
+        $this->addFlash("success", "You have added a like to this post.");
         return $this->redirectToRoute('posts_show', [
             'id' => $posts->getID(),
         ]);
     }
+
     /**
-     * @Route("/posts/{id}", name="Unlike", methods={"GET","POST"})
+     * @Route("/posts/{id}/unlike", name="Unlike", methods={"GET","POST"})
      * @method("POST")
      * @param Posts $posts
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removelikes(Posts $posts){
+        $likes = $this->getDoctrine()->getRepository(Likes::class)->findOneBy(['Post' => $posts, 'User' => $this->getUser() ]);
         $entityManager = $this->getDoctrine()->getManager();
-        $likes = new likes();
-        $likes->setPost($posts);
-        $likes->setUser($this->getUser());
         $entityManager->remove($likes);
         $entityManager->flush();
+        $this->addFlash("success", "You have removed your like to this post.");
         return $this->redirectToRoute('posts_show', [
             'id' => $posts->getID(),
         ]);

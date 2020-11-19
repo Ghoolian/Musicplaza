@@ -22,12 +22,19 @@
     </tbody>
     </table>
 <br/>
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="{{ label }}">{{ message }}</div>
+        {% endfor %}
+    {% endfor %}
+    <br/>
     This post is liked by:
     {% for likes in posts.likes %}
     <td>{{ likes.user.username}},</td>
-
     {% endfor %}
-    {% if app.user.likes in posts.likes %}
+
+
+    {% if app.user.liked(posts) == true %}
         <form action="{{ path('Unlike', {'id': posts.id}) }}">
         <input type="submit" value="Unlike"><br/>
         <br>

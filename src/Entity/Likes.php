@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\LikesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,13 +25,9 @@ class Likes
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="likes")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
-
-    public function __construct()
-    {
-
-    }
+    private $User;
 
     public function getId(): ?int
     {
@@ -45,23 +39,22 @@ class Likes
         return $this->Post;
     }
 
-    public function setPost(?Posts $Post): self
+    public function setPost(?Posts $post): self
     {
-        $this->Post = $Post;
+        $this->Post = $post;
 
         return $this;
     }
 
     public function getUser(): ?User
     {
-        return $this->user;
+        return $this->User;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(?User $User): self
     {
-        $this->user = $user;
+        $this->User = $User;
 
         return $this;
     }
-
 }

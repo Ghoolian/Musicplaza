@@ -37,7 +37,7 @@ class Posts
     private $created;
 
     /**
-     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="post", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="Post", orphanRemoval=true)
      */
     private $replies;
 
@@ -45,6 +45,8 @@ class Posts
      * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="Post", orphanRemoval=true)
      */
     private $likes;
+
+
 
     public function __construct(){
         $this->created = new \DateTime('now');
@@ -153,4 +155,7 @@ class Posts
 
         return $this;
     }
+
+
+
 }
