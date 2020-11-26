@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\RepliesRepository;
-use App\Entity\Posts;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,16 +19,6 @@ class Replies
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $text;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
-    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="replies")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -40,36 +30,23 @@ class Replies
      */
     private $post;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $text;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
     public function __construct(){
-        $this->created = new \DateTime('now');
+        $this->created = new DateTime('now');
     }
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getText(): ?string
-    {
-        return $this->text;
-    }
-
-    public function setText(string $text): self
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    public function getCreated(): ?\DateTimeInterface
-    {
-        return $this->created;
-    }
-
-    public function setCreated(\DateTimeInterface $created): self
-    {
-        $this->created = $created;
-
-        return $this;
     }
 
     public function getUser(): ?User
@@ -92,6 +69,30 @@ class Replies
     public function setPost(?Posts $post): self
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(string $text): self
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    public function getCreated(): ?\DateTimeInterface
+    {
+        return $this->created;
+    }
+
+    public function setCreated(\DateTimeInterface $created): self
+    {
+        $this->created = $created;
 
         return $this;
     }

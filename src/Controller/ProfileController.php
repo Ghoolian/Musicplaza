@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Form\ProfileType;
 use App\Form\UserType;
 use App\Entity\User;
+use App\Entity\Friends;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -77,4 +78,19 @@ class ProfileController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("friends/inbox/{id}", name="friendinbox", methods={"GET"})
+     * @param User $user
+     * @return Response
+     */
+    public function showInbox(User $user): Response
+    {
+
+        return $this->render('profile/inbox.html.twig', [
+            'user' => $user
+        ]);
+    }
+
+
 }

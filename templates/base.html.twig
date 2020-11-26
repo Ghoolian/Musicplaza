@@ -108,9 +108,14 @@
                     {% endif %}
 
                     <li class="has-submenu">
-                        <a href="#"><i class="icon-fire"></i>Add friends</a>
-
+                        <a href="{{ path('friends') }}"><i class="icon-fire"></i>Add friends</a>
                     </li>
+
+                    {% if app.user %}
+                    <li class="has-submenu">
+                        <a href="{{ path('friendinbox',{'id': app.user.id}) }}"><i class="icon-fire"></i>Inbox</a>
+                    </li>
+                    {% endif %}
 
                 </ul>
                 <!-- End navigation menu -->

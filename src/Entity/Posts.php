@@ -36,15 +36,17 @@ class Posts
      */
     private $created;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="Post", orphanRemoval=true)
-     */
-    private $replies;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="Post", orphanRemoval=true)
      */
     private $likes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="post", orphanRemoval=true)
+     */
+    private $replies;
 
 
 

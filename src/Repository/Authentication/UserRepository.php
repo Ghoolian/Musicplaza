@@ -37,6 +37,18 @@ class UserRepository extends ServiceEntityRepository
         return $permissionQuery->getResult();
     }
 
+    public function findUsersBySearch(string $input)
+    {
+
+        // "N" is een alias die wordt gebruikt voor de rest van de query.
+        return $this->createQueryBuilder('n')
+            ->where('n.name LIKE :input')
+            ->setParameter(':input', '%'.$input.'%')
+            ->orderBy('n.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

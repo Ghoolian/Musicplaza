@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your user search result{% endblock %}
+
+{% block body %}
+    <h1>Search results</h1>
+
+    <table class="table">
+
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>E-mail </th>
+            <th>Gender</th>
+            <th>Birthday </th>
+            <th>Playstation ID </th>
+            <th>Nintendo Network ID </th>
+            <th>X-box Live </th>
+            <th>Twitter </th>
+            <th>Discord </th>
+            <th>Facebook </th>
+            <th>Check profile</th>
+        </tr>
+        <tbody>
+        <tr>
+            {% for user in results %}
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.birthday ? user.birthday|date('Y-m-d') : ''  }}</td>
+                <td>{{ user.playstation }}</td>
+                <td>{{ user.nintendo }}</td>
+                <td>{{ user.xbox }}</td>
+                <td>{{ user.twitter }}</td>
+                <td>{{ user.discord }}</td>
+                <td>{{ user.facebook }}</td>
+                <td><a href="{{ path('profile_show', {'id': user.id}) }}">show</a></td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('home') }}">Back to home</a>
+
+
+
+{% endblock %}

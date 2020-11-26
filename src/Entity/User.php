@@ -132,15 +132,22 @@ class User implements UserInterface
      */
     private $posts;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="user", orphanRemoval=true)
-     */
-    private $replies;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="User", orphanRemoval=true)
      */
     private $likes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="recipient", orphanRemoval=true)
+     */
+    private $friends;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $replies;
 
 
     public function __construct()
@@ -154,6 +161,7 @@ class User implements UserInterface
         $this->posts = new ArrayCollection();
         $this->replies = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->friends = new ArrayCollection();
 
     }
 
@@ -591,6 +599,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($like->getUser() === $this) {
                 $like->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Friends[]
+     */
+    public function getFriends(): Collection
+    {
+        return $this->friends;
+    }
+
+    public function addFriend(Friends $friend): self
+    {
+        if (!$this->friends->contains($friend)) {
+            $this->friends[] = $friend;
+            $friend->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriend(Friends $friend): self
+    {
+        if ($this->friends->removeElement($friend)) {
+            // set the owning side to null (unless already changed)
+            if ($friend->getSender() === $this) {
+                $friend->setSender(null);
             }
         }
 

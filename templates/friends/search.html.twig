@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search Friends{% endblock %}
+
+{% block body %}
+    <h1>Search all users</h1>
+
+    {% if app.user %}
+        <form method="post" action="{{ path('friendsearch') }}">
+        <label for="searchvalue">Search users:</label><br>
+        <input type="text" id="searchvalue" name="searchvalue"><br><br>
+        <input type="submit" value="Search">
+    {% endif %}
+    </form>
+
+    <br/>
+
+    <a href="{{ path('home') }}">Back to home</a>
+
+    <br/> <br/>
+{% endblock %}

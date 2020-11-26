@@ -22,6 +22,17 @@
     </tbody>
     </table>
 <br/>
+    <table>
+        <tbody>
+        <tr>
+        <th>Replies</th>
+            {% for replies in posts.replies %}
+
+        <td>{{ replies.text }},</td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
     {% for label, messages in app.flashes %}
         {% for message in messages %}
             <div class="{{ label }}">{{ message }}</div>

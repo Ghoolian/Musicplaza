@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Friends;
 use App\Entity\Posts;
 use App\Entity\Replies;
 use App\Entity\Likes;
@@ -29,6 +30,7 @@ class PostController extends AbstractController
             'posts' => $posts
         ]);
     }
+
     /**
      * @Route("/new", name="posts_new", methods={"GET","POST"})
      * @param Request $request
@@ -147,5 +149,36 @@ class PostController extends AbstractController
             'id' => $posts->getID(),
         ]);
     }
+    /**
+     * @Route("/", name="friendaccept", methods={"GET"})
+     * @param Friends $friends
+     * @return Response
+     */
+    public function acceptRequest(Friends $friends){
+        $entityManager = $this->getDoctrine()->getManager();
+        $friends->setAcceptCheck(true);
+        $friends->setVisible(false);
+        $entityManager->persist($friends);
+        $entityManager->flush();
+        $this->addFlash("success", "You have accepted this friend request. You can now see your friends posts on the homepage.");
+        return $this->redirectToRoute('home', [
+        ]);
+    }
 
+    /**
+     * @Route("/", name="frienddecline", methods={"GET"})
+     * @param Friends $friends
+     * @return Response
+     */
+    public function declineRequest(Friends $friends){
+        $entityManager = $this->getDoctrine()->getManager();
+        $friends->setAcceptCheck(false);
+        $friends->setVisible(false);
+        $entityManager->persist($friends);
+        $entityManager->flush();
+        $this->addFlash("success", "You have declined this friend request. That user can no longer send you a friend request.");
+        return $this->redirectToRoute('home', [
+
+        ]);
+    }
 }
