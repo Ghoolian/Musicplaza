@@ -80,6 +80,38 @@ class ProfileController extends AbstractController
     }
 
     /**
+     * @Route("friends/accept/{id}", name="friendaccept", methods={"GET"})
+     * @param Friends $id
+     * @return Response
+     */
+    public function acceptRequest(Friends $id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $id->setAcceptCheck(true);
+        $id->setVisible(false);
+        $entityManager->persist($id);
+        $entityManager->flush();
+        $this->addFlash("success", "You have accepted this friend request. You can now see your friends posts on the homepage.");
+        return $this->redirectToRoute('home', [
+        ]);
+    }
+
+    /**
+     * @Route("friends/decline/{id}", name="frienddecline", methods={"GET"})
+     * @param Friends $id
+     * @return Response
+     */
+    public function declineRequest(Friends $id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $id->setAcceptCheck(false);
+        $id->setVisible(false);
+        $entityManager->persist($id);
+        $entityManager->flush();
+        $this->addFlash("success", "You have declined this friend request. That user can no longer send you a friend request.");
+        return $this->redirectToRoute('home', [
+        ]);
+    }
+
+    /**
      * @Route("friends/inbox/{id}", name="friendinbox", methods={"GET"})
      * @param User $user
      * @return Response

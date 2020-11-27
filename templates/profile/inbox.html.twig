@@ -15,17 +15,19 @@
     </thead>
     <tbody>
 
-    {% for friends in user.friends %}
+    {% for friends in user.recipient %}
         {% if user.id is same as(friends.recipient.id) %}
+            {% if friends.visible == 1 %}
     <tr>
         <td>{{ friends.sender.name }}</td>
-        {{  }}
+
 
         <td>
-                <a href="{{ path('friendaccept') }}">Accept</a>
-                <a href="{{ path('frienddecline') }}">Decline</a>
+                <a href="{{ path('friendaccept', {'id': friends.id}) }}">Accept</a>
+                <a href="{{ path('frienddecline', {'id': friends.id}) }}">Decline</a>
         </td>
     </tr>
+            {% endif %}
         {% endif %}
     {% endfor %}
     </tbody>

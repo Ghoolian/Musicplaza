@@ -140,14 +140,19 @@ class User implements UserInterface
     private $likes;
 
     /**
-     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="recipient", orphanRemoval=true)
-     */
-    private $friends;
-
-    /**
      * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="user", orphanRemoval=true)
      */
     private $replies;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Recipient", orphanRemoval=true)
+     */
+    private $recipient;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Sender", orphanRemoval=true)
+     */
+    private $sender;
 
 
     public function __construct()
@@ -161,7 +166,8 @@ class User implements UserInterface
         $this->posts = new ArrayCollection();
         $this->replies = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        $this->friends = new ArrayCollection();
+        $this->recipient = new ArrayCollection();
+        $this->sender = new ArrayCollection();
 
     }
 
@@ -560,10 +566,6 @@ class User implements UserInterface
         return $this;
     }
 
-
-
-
-
     public function hasLiked(Posts $posts)
     {
 
@@ -608,27 +610,57 @@ class User implements UserInterface
     /**
      * @return Collection|Friends[]
      */
-    public function getFriends(): Collection
+    public function getRecipient(): Collection
     {
-        return $this->friends;
+        return $this->recipient;
     }
 
-    public function addFriend(Friends $friend): self
+    public function addRecipient(Friends $recipient): self
     {
-        if (!$this->friends->contains($friend)) {
-            $this->friends[] = $friend;
-            $friend->setSender($this);
+        if (!$this->recipient->contains($recipient)) {
+            $this->recipient[] = $recipient;
+            $recipient->setRecipient($this);
         }
 
         return $this;
     }
 
-    public function removeFriend(Friends $friend): self
+    public function removeRecipient(Friends $recipient): self
     {
-        if ($this->friends->removeElement($friend)) {
+        if ($this->recipient->removeElement($recipient)) {
             // set the owning side to null (unless already changed)
-            if ($friend->getSender() === $this) {
-                $friend->setSender(null);
+            if ($recipient->getRecipient() === $this) {
+                $recipient->setRecipient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Friends[]
+     */
+    public function getSender(): Collection
+    {
+        return $this->sender;
+    }
+
+    public function addSender(Friends $sender): self
+    {
+        if (!$this->sender->contains($sender)) {
+            $this->sender[] = $sender;
+            $sender->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSender(Friends $sender): self
+    {
+        if ($this->sender->removeElement($sender)) {
+            // set the owning side to null (unless already changed)
+            if ($sender->getSender() === $this) {
+                $sender->setSender(null);
             }
         }
 

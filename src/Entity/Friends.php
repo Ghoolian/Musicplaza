@@ -18,18 +18,6 @@ class Friends
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="friends")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $sender;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $recipient;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $AcceptCheck;
@@ -38,6 +26,18 @@ class Friends
      * @ORM\Column(type="boolean")
      */
     private $Visible;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipient")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Recipient;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sender")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Sender;
 
 
     public function __construct(){
@@ -48,30 +48,6 @@ class Friends
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getSender(): ?User
-    {
-        return $this->sender;
-    }
-
-    public function setSender(?User $sender): self
-    {
-        $this->sender = $sender;
-
-        return $this;
-    }
-
-    public function getRecipient(): ?User
-    {
-        return $this->recipient;
-    }
-
-    public function setRecipient(?User $recipient): self
-    {
-        $this->recipient = $recipient;
-
-        return $this;
     }
 
     public function getAcceptCheck(): ?bool
@@ -97,6 +73,32 @@ class Friends
 
         return $this;
     }
+
+    public function setRecipient(?User $recipient): self
+    {
+        $this->Recipient = $recipient;
+
+        return $this;
+    }
+
+    public function getRecipient(): ?User
+    {
+        return $this->Recipient;
+    }
+
+    public function getSender(): ?User
+    {
+        return $this->Sender;
+    }
+
+    public function setSender(?User $sender): self
+    {
+        $this->Sender = $sender;
+
+        return $this;
+    }
+
+
 
 
 }
