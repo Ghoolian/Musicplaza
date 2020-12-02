@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}{{ user.name }}'s Inbox{% endblock %}
+
+{% block body %}
+
+    <br>
+    <h1 style="text-align:center;">{{ user.name }}'s Inbox</h1>
+<table class="table table-bordered mb-0">
+    <thead class="thead-light">
+    <tr>
+        <th>Sender</th>
+        <th>Accept/Decline</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for friends in user.recipient %}
+        {% if user.id is same as(friends.recipient.id) %}
+            {% if friends.visible == 1 %}
+    <tr>
+        <td>{{ friends.sender.name }}</td>
+
+
+        <td>
+                <a href="{{ path('friendaccept', {'id': friends.id}) }}">Accept</a>
+                <a href="{{ path('frienddecline', {'id': friends.id}) }}">Decline</a>
+        </td>
+    </tr>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -96,7 +96,7 @@
                     <li class="has-submenu">
                         <a href="{{ path('home') }}"><i class="icon-speedometer"></i>Home</a>
                     </li>
-
+                    {% if app.user == false %}
                     <li class="has-submenu">
                         <a href="#"><i class="icon-layers"></i>Login</a>
                         <ul class="submenu">
@@ -104,6 +104,11 @@
                             <li><a href="{{ path('security_register') }}">Register</a></li>
                         </ul>
                     </li>
+<<<<<<< Updated upstream
+=======
+                    {% endif %}
+                    {% if app.user %}
+>>>>>>> Stashed changes
 
                     <li class="has-submenu">
                         <a href="#"><i class="icon-briefcase"></i>Numbers</a>
@@ -152,6 +157,7 @@
 </header>
 <!-- End Navigation Bar-->
 
+<<<<<<< Updated upstream
 <br><br><br><br><br>
 {% if app.user %}
 <form method="post" action="{{ path('') }}">
@@ -161,10 +167,22 @@
     {% endif %}
 </form>
 
+=======
+{#{% if app.user %}#}
+{#<form method="post" action="{{ path('') }}">#}
+{#    <label for="searchvalue">Search numbers:</label><br>#}
+{#    <input type="text" id="searchvalue" name="searchvalue"><br><br>#}
+{#    <input type="submit" value="Search">#}
+{#    {% endif %}#}
+{#</form>#}
+<div class="wrapper">
+<div class="container" style="">
+>>>>>>> Stashed changes
 {% block body %}
 
 {% endblock %}
-
+</div>
+</div>
 <!-- Footer -->
 <footer class="footer">
     <div class="container">

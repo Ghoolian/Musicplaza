@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201201105828.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ProfileType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfileType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/friends/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/inbox.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/inbox.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +167,34 @@
       <workItem from="1604054308617" duration="3070000" />
       <workItem from="1604064939719" duration="3289000" />
       <workItem from="1604312873860" duration="10890000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1604391189903" duration="8559000" />
+      <workItem from="1604478810921" duration="9814000" />
+      <workItem from="1604564731024" duration="980000" />
+      <workItem from="1604566846419" duration="11892000" />
+      <workItem from="1604651699051" duration="8847000" />
+      <workItem from="1604678218005" duration="599000" />
+      <workItem from="1604909592414" duration="10670000" />
+      <workItem from="1605002231800" duration="13947000" />
+      <workItem from="1605091939261" duration="14324000" />
+      <workItem from="1605173141784" duration="10003000" />
+      <workItem from="1605256198085" duration="5423000" />
+      <workItem from="1605515235405" duration="6878000" />
+      <workItem from="1605608851976" duration="12904000" />
+      <workItem from="1605688154484" duration="16087000" />
+      <workItem from="1605778377038" duration="8172000" />
+      <workItem from="1605886427266" duration="2619000" />
+      <workItem from="1606118938662" duration="8172000" />
+      <workItem from="1606214080659" duration="5273000" />
+      <workItem from="1606299867630" duration="13916000" />
+      <workItem from="1606380309459" duration="14223000" />
+      <workItem from="1606466454044" duration="7147000" />
+      <workItem from="1606727998110" duration="1214000" />
+      <workItem from="1606749809959" duration="1788000" />
+      <workItem from="1606816438998" duration="7981000" />
+      <workItem from="1606901855670" duration="13771000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -177,12 +225,21 @@
     <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604075160630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+<<<<<<< Updated upstream
     <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604075160630" />
     <state x="664" y="242" key="NewPhpClassDialog" timestamp="1604324866239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="664" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604324866239" />
     <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1604319973301">
+=======
+    <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606469914685" />
+    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1606921878415">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606921878415" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605703577635">
+>>>>>>> Stashed changes
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604319973301" />

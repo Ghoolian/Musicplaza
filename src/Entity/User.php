@@ -69,6 +69,102 @@ class User implements UserInterface
      */
     private $passwordRecoveries;
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $profilepicture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true))
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ActivationToken;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $ActivationCheck;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Playstation;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Nintendo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Xbox;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Twitter;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Discord;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Facebook;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Posts::class, mappedBy="User", orphanRemoval=true)
+     * @ORM\OrderBy({"created" = "DESC"})
+     */
+    private $posts;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="User", orphanRemoval=true)
+     */
+    private $likes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Replies::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $replies;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Recipient", orphanRemoval=true)
+     */
+    private $recipient;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Sender", orphanRemoval=true)
+     */
+    private $sender;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
+
+>>>>>>> Stashed changes
 
     public function __construct()
     {
@@ -279,6 +375,30 @@ class User implements UserInterface
                 $passwordRecovery->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
 
         return $this;
     }

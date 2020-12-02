@@ -3,15 +3,19 @@
     {% block title %}Musicplaza Home{% endblock %}
 
 {% block body %}
-    <div class="wrapper">
-        <div class="container-fluid">
 
             <!-- Page-Title -->
-            <div class="row">
-                <h4 class="page-title">Starter</h4>
+            <div class="page-header" style="text-align:center;">
+                <h1>Home</h1>
             </div>
+            {% if app.user %}
+                <div class="mb-3" style="text-align:center;">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('security_logout') }}">Logout</a>
+                </div>
+            {% endif %}
             <!-- end page title end breadcrumb -->
 
+<<<<<<< Updated upstream
         </div> <!-- end container -->
     </div>
     <!-- end wrapper -->
@@ -20,6 +24,67 @@
         You are logged in as {{ app.user.username }}, <a href="{{ path('security_logout') }}">Logout</a>
     </div>
     {% endif %}
+=======
+
+
+    <div class="container">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="{{ label }}">{{ message }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="card">
+        <div class="card-body">
+
+    <h4>Posts van vrienden</h4>
+    <table class="table table-bordered mb-0">
+    <thead class="thead-light">
+    <tr>
+        <th>Text</th>
+        <th>User</th>
+        <th>Date/Time</th>
+        <th>Show</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for friends in app.user.sender %}
+    {% if friends.acceptCheck == "1" %}
+        {% for posts in friends.recipient.posts %}
+            {% if app.user.id is not same as (friends.recipient.id) %}
+            <tr>
+            <td>{{ posts.text }}</td>
+            <td>{{ posts.user.name }}</td>
+            <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
+            <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endfor %}
+
+    {% for friends in app.user.recipient %}
+    {% if friends.acceptCheck == "1" %}
+        {% for posts in friends.sender.posts %}
+            {% if app.user.id is not same as (friends.sender.id) %}
+
+                <tr>
+                <td>{{ posts.text }}</td>
+                <td>{{ posts.user.name }}</td>
+                <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
+                <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endfor %}
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+
+    </div>
+>>>>>>> Stashed changes
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

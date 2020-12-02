@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>Edit profile</h1>
+    </div>
+    <div class="card" style="">
+    <div class="card-body">
+
+
+{{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
+
+<br/>
+
+    <a href="{{ path('home') }}">Back to home</a>
+
+<br/> <br/>
+    </div>
+    </div>
+{% endblock %}

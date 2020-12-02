@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ user.name }}'s Profile{% endblock %}
+
+{% block body %}
+<br>
+
+    <div class="card" style="">
+        <div class="card-body">
+            <p class="card-text" style="text-align:center;">
+                <img src="{{ asset('images/profilepictures/' ~ user.profilepicture) }}" alt="No profile picture found." style="width: 250px; ">
+                <h1 style="text-align:center;">{{ user.firstname }} {{ user.lastname }}</h1>
+            {% if app.user.id == user.id %}
+
+                <h4 style="text-align:center;"><a href="{{ path('profile_edit', {'id': user.id}) }}"> Edit profile</a></h4>
+
+            {% endif %}
+
+        </div>
+    </div>
+    </br>
+    <div class="card-columns d-flex justify-content-center">
+    <div class="card" style="">
+        <div class="card-body">
+
+                        <div class="row">
+                     <div class="col" style="">
+                        <p class="card-text">
+                         <table class="table mb-0">
+                            <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Username</th>
+                                <td>{{ user.name }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>E-mail </th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>{{ user.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th>Birthday </th>
+                                <td>{{ user.birthday ? user.birthday|date('Y-m-d') : ''  }}</td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                     </div>
+                        </div>
+    </div>
+    </div>
+
+
+    <div class="card" style="">
+        <div class="card-body">
+
+        <div class="col" style="">
+            <p class="card-text">
+                    <table class="table mb-0">
+                        <tbody>
+
+                        <tr>
+                            <th>Playstation ID </th>
+                            <td>{{ user.playstation }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nintendo Network ID </th>
+                            <td>{{ user.nintendo }}</td>
+                        </tr>
+                        <tr>
+                            <th>X-box Live </th>
+                            <td>{{ user.xbox }}</td>
+                        </tr>
+                        <tr>
+                            <th>Twitter </th>
+                            <td>{{ user.twitter }}</td>
+                        </tr>
+                        <tr>
+                            <th>Discord </th>
+                            <td>{{ user.discord }}</td>
+                        </tr>
+                        <tr>
+                            <th>Facebook </th>
+                            <td>{{ user.facebook }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </div>
+
+
+
+      {% if app.user.id != user.id %}
+    {% for friends in user.recipient %}
+        {% if app.user.id is not same as (friends.recipient.id) %}
+    {% for friends in user.sender %}
+        {% if app.user.id is not same as (friends.sender.id) %}
+      <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
+        {% endif %}
+    {% endfor %}
+        {% endif %}
+    {% endfor %}
+          {% endif %}
+
+    <h1 style="text-align:center;">{{ user.name }}'s Posts</h1>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">
+
+        {% if app.user.id == user.id %}
+
+            <td><a href="{{ path('posts_new', {'user_id': user.id}) }}">New post</a></td> <br/>
+        {% endif %}
+    <table class="table table-bordered mb-0" style="margin-top:-50px;">
+    <thead class="thead-light">
+    <tr>
+        <th>Text</th>
+        <th>Date/Time</th>
+        {% if app.user.isSuper == "1" or app.user.id == 'user_id' %}
+
+            <th>Admin actions</th>
+        {% endif %}
+        <th>Show</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for posts in user.posts %}
+<tr>
+    <td>{{ posts.text }}</td>
+    <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
+
+
+    {% if (app.user.isSuper == "1") or (app.user.id == 'user_id') %}
+
+
+        <td><a href="{{ path('profile_edit', {'id': user.id}) }}">Edit</a></td> <br/>
+
+    {% endif %}
+    <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+    {% endfor %}
+</tr>
+    </tbody>
+    </table> <br/>
+    <a href="{{ path('home') }}">Back to home</a>
+    </div>
+    </div>
+    <br/>
+    <br/>
+{% endblock %}

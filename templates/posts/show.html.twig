@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Post {{ posts.id }}{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h4 class="page-title">Post {{ posts.id }}</h4>
+    </div> <br/>
+    <div class="card" style="">
+    <div class="card-body" >
+    <table class="table">
+    <br/>
+    <tbody>
+    <tr>
+        <th>Text</th>
+        <td>{{ posts.text }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ posts.user.name }}</td>
+    </tr>
+    <tr>
+        <th>Date/Time</th>
+        <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
+    </tr>
+    </tbody>
+    </table>
+<br/>
+    <table>
+        <tbody>
+        <tr>
+        <th>Replies</th>
+            {% for replies in posts.replies %}
+
+        <td>{{ replies.text }},</td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="{{ label }}">{{ message }}</div>
+        {% endfor %}
+    {% endfor %}
+    <br/>
+    This post is liked by:
+    {% for likes in posts.likes %}
+    <td>{{ likes.user.username}},</td>
+    {% endfor %}
+
+
+    {% if app.user.liked(posts) == true %}
+        <form action="{{ path('Unlike', {'id': posts.id}) }}">
+        <input type="submit" value="Unlike"><br/>
+        <br>
+    {% else %}
+            <form action="{{ path('Like', {'id': posts.id}) }}">
+            <input type="submit" value="like"><br/>
+            <br>
+    {% endif %}
+
+    <h1>Create a new Reply</h1>
+    <a href="{{ path('replies_new', {'id': posts.id}) }}">New reply</a> <br/>
+    </form>
+    <br>
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
