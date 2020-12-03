@@ -96,22 +96,23 @@
                     <li class="has-submenu">
                         <a href="{{ path('home') }}"><i class="icon-speedometer"></i>Home</a>
                     </li>
-
+                    {% if app.user == false %}
                     <li class="has-submenu">
                         <a href="{{ path('security_register') }}"><i class="icon-layers"></i>Register</a>
                     </li>
+                    {% endif %}
                     {% if app.user %}
 
                     <li class="has-submenu">
                         <a href="{{ path('profile_show',{'id': app.user.id}) }}"><i class="icon-briefcase"></i>Profile</a>
                     </li>
-                    {% endif %}
+
 
                     <li class="has-submenu">
                         <a href="{{ path('friends') }}"><i class="icon-fire"></i>Add friends</a>
                     </li>
 
-                    {% if app.user %}
+
                     <li class="has-submenu">
                         <a href="{{ path('friendinbox',{'id': app.user.id}) }}"><i class="icon-fire"></i>Inbox</a>
                     </li>
@@ -125,7 +126,6 @@
 </header>
 <!-- End Navigation Bar-->
 
-<br><br><br><br><br>
 {#{% if app.user %}#}
 {#<form method="post" action="{{ path('') }}">#}
 {#    <label for="searchvalue">Search numbers:</label><br>#}
@@ -133,11 +133,13 @@
 {#    <input type="submit" value="Search">#}
 {#    {% endif %}#}
 {#</form>#}
-
+<div class="wrapper">
+<div class="container" style="">
 {% block body %}
 
 {% endblock %}
-
+</div>
+</div>
 <!-- Footer -->
 <footer class="footer">
     <div class="container">

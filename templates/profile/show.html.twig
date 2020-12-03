@@ -3,67 +3,126 @@
 {% block title %}{{ user.name }}'s Profile{% endblock %}
 
 {% block body %}
+<br>
 
-    <h1>{{ user.name }}'s Profile</h1>
+    <div class="card" style="">
+        <div class="card-body">
+            <p class="card-text" style="text-align:center;">
+                <img src="{{ asset('images/profilepictures/' ~ user.profilepicture) }}" alt="No profile picture found." style="width: 250px; ">
+                <h1 style="text-align:center;">{{ user.firstname }} {{ user.lastname }}</h1>
+            {% if app.user.id == user.id %}
 
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ user.id }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ user.name }}</td>
-        </tr>
-        <tr>
-            <th>E-mail </th>
-            <td>{{ user.email }}</td>
-        </tr>
-        <tr>
-            <th>Gender</th>
-            <td>{{ user.gender }}</td>
-        </tr>
-        <tr>
-            <th>Birthday </th>
-            <td>{{ user.birthday ? user.birthday|date('Y-m-d') : ''  }}</td>
-        </tr>
-        <tr>
-            <th>Playstation ID </th>
-            <td>{{ user.playstation }}</td>
-        </tr>
-        <tr>
-            <th>Nintendo Network ID </th>
-            <td>{{ user.nintendo }}</td>
-        </tr>
-        <tr>
-            <th>X-box Live </th>
-            <td>{{ user.xbox }}</td>
-        </tr>
-        <tr>
-            <th>Twitter </th>
-            <td>{{ user.twitter }}</td>
-        </tr>
-        <tr>
-            <th>Discord </th>
-            <td>{{ user.discord }}</td>
-        </tr>
-        <tr>
-            <th>Facebook </th>
-            <td>{{ user.facebook }}</td>
-        </tr>
+                <h4 style="text-align:center;"><a href="{{ path('profile_edit', {'id': user.id}) }}"> Edit profile</a></h4>
 
-        </tbody>
-    </table> <br/>
+            {% endif %}
+
+        </div>
+    </div>
+    </br>
+    <div class="card-columns d-flex justify-content-center">
+    <div class="card" style="">
+        <div class="card-body">
+
+                        <div class="row">
+                     <div class="col" style="">
+                        <p class="card-text">
+                         <table class="table mb-0">
+                            <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Username</th>
+                                <td>{{ user.name }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>E-mail </th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>{{ user.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th>Birthday </th>
+                                <td>{{ user.birthday ? user.birthday|date('Y-m-d') : ''  }}</td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                     </div>
+                        </div>
+    </div>
+    </div>
+
+
+    <div class="card" style="">
+        <div class="card-body">
+
+        <div class="col" style="">
+            <p class="card-text">
+                    <table class="table mb-0">
+                        <tbody>
+
+                        <tr>
+                            <th>Playstation ID </th>
+                            <td>{{ user.playstation }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nintendo Network ID </th>
+                            <td>{{ user.nintendo }}</td>
+                        </tr>
+                        <tr>
+                            <th>X-box Live </th>
+                            <td>{{ user.xbox }}</td>
+                        </tr>
+                        <tr>
+                            <th>Twitter </th>
+                            <td>{{ user.twitter }}</td>
+                        </tr>
+                        <tr>
+                            <th>Discord </th>
+                            <td>{{ user.discord }}</td>
+                        </tr>
+                        <tr>
+                            <th>Facebook </th>
+                            <td>{{ user.facebook }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </div>
+
+
+
       {% if app.user.id != user.id %}
+    {% for friends in user.recipient %}
+        {% if app.user.id is not same as (friends.recipient.id) %}
+    {% for friends in user.sender %}
+        {% if app.user.id is not same as (friends.sender.id) %}
       <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
-      {% endif %}
-    {% if app.user.id == user.id %}
-    <td><a href="{{ path('posts_new', {'user_id': user.id}) }}">New post</a></td> <br/>
-    {% endif %}
-    <h1>{{ user.name }}'s Posts</h1>
+        {% endif %}
+    {% endfor %}
+        {% endif %}
+    {% endfor %}
+          {% endif %}
 
-    <table class="table table-bordered mb-0">
+    <h1 style="text-align:center;">{{ user.name }}'s Posts</h1>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">
+
+        {% if app.user.id == user.id %}
+
+            <td><a href="{{ path('posts_new', {'user_id': user.id}) }}">New post</a></td> <br/>
+        {% endif %}
+    <table class="table table-bordered mb-0" style="margin-top:-50px;">
     <thead class="thead-light">
     <tr>
         <th>Text</th>
@@ -95,6 +154,8 @@
     </tbody>
     </table> <br/>
     <a href="{{ path('home') }}">Back to home</a>
-
-
+    </div>
+    </div>
+    <br/>
+    <br/>
 {% endblock %}

@@ -3,7 +3,13 @@
 {% block title %}Search Friends{% endblock %}
 
 {% block body %}
-    <h1>Search all users</h1>
+        <div class="page-header">
+            <h1 style="text-align:center;"> Search all users </h1>
+        </div> <br/>
+    <div class="card">
+    <div class="card-body">
+    <p class="card-text">
+
 
     {% if app.user %}
         <form method="post" action="{{ path('friendsearch') }}">
@@ -18,4 +24,6 @@
     <a href="{{ path('home') }}">Back to home</a>
 
     <br/> <br/>
+    </div>
+    </div>
 {% endblock %}

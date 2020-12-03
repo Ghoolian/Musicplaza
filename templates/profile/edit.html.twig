@@ -3,7 +3,12 @@
 {% block title %}Edit Profile{% endblock %}
 
 {% block body %}
-<h1>Edit Profile</h1>
+    <div class="page-header">
+        <h1 style="text-align:center;">Edit profile</h1>
+    </div>
+    <div class="card" style="">
+    <div class="card-body">
+
 
 {{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
 
@@ -12,4 +17,6 @@
     <a href="{{ path('home') }}">Back to home</a>
 
 <br/> <br/>
+    </div>
+    </div>
 {% endblock %}

@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Post {{ posts.id }}{% endblock %}
 
 {% block body %}
-
-<table class="table">
+    <div class="page-header">
+        <h4 class="page-title">Post {{ posts.id }}</h4>
+    </div> <br/>
+    <div class="card" style="">
+    <div class="card-body" >
+    <table class="table">
     <br/>
     <tbody>
     <tr>
@@ -59,4 +64,9 @@
     <a href="{{ path('replies_new', {'id': posts.id}) }}">New reply</a> <br/>
     </form>
     <br>
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}
