@@ -164,6 +164,11 @@ class User implements UserInterface
      */
     private $lastname;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
 
     public function __construct()
     {
@@ -178,7 +183,7 @@ class User implements UserInterface
         $this->likes = new ArrayCollection();
         $this->recipient = new ArrayCollection();
         $this->sender = new ArrayCollection();
-
+        $this->visible = "1";
     }
 
     public function getId(): ?int
@@ -697,6 +702,18 @@ class User implements UserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getVisible(): ?bool
+    {
+        return $this->visible;
+    }
+
+    public function setVisible(bool $visible): self
+    {
+        $this->visible = $visible;
 
         return $this;
     }

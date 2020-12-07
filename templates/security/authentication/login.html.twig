@@ -7,25 +7,18 @@
 {% if error %}
     <div style="color:red;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
+
 {#    <form action="{{ path('security_login') }}" method="post">
         <input type="email" name="_username" value="{{ last_username }}" class="form-control" placeholder="{{ 'E-mail'|trans }}"> <br/>
         <input type="password" name="_password" class="form-control" placeholder="{{ 'Password'|trans }}"> <br/>
         <input type="submit" value="{{ 'Login'|trans }}"> <br/>
     </form>#}
 
-<div class="wrapper-page account-page-full">
-
-    <div class="card">
-        <div class="card-block">
 
             <div class="account-box">
 
                 <div class="card-box p-5">
-                    <h2 class="text-uppercase text-center pb-4">
-                        <a href="{{ path('home') }}" class="text-success">
-                            <span><img src="assets/images/logo_light.png" alt="" height="26"></span>
-                        </a>
-                    </h2>
+
 
                     <form class="" action="{{ path('security_login')}}" method="post">
 

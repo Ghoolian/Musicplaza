@@ -297,7 +297,7 @@ class SecurityController extends AbstractController
     {
 
         $repository = $this->getDoctrine()->getRepository(User::Class);
-        $user = $repository->findOneBy(['activationToken' => $token]);
+        $user = $repository->findOneBy(['ActivationToken' => $token]);
         if ($user != null) {
             $user->setActivationCheck(true);
             $entityManager = $this->getDoctrine()->getManager();

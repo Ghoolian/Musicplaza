@@ -52,11 +52,11 @@
 
     {% if app.user.liked(posts) == true %}
         <form action="{{ path('Unlike', {'id': posts.id}) }}">
-        <input type="submit" value="Unlike"><br/>
+            <button type="submit" value="like"><i class="fas fa-thumbs-up"></i> Unlike this post</button>
         <br>
     {% else %}
             <form action="{{ path('Like', {'id': posts.id}) }}">
-            <input type="submit" value="like"><br/>
+                <button type="submit" value="like"><i class="fas fa-thumbs-up"></i> Like this post</button>
             <br>
     {% endif %}
 
@@ -67,6 +67,5 @@
         </form>
     </div>
     </div>
-    </div>
-    </div>
+
 {% endblock %}

@@ -16,9 +16,27 @@
 
             {% endif %}
 
+            
+            {% if app.user.id != user.id %}
+                {% for friends in user.recipient %}
+                    {% if app.user.id is not same as (friends.recipient.id) %}
+                        {% for friends in user.sender %}
+                            {% if app.user.id is not same as (friends.sender.id) %}
+                                <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if user.recipient is empty %}
+                {% if user.sender is empty %}
+            <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
+            {% endif %}
+                {% endif %}
         </div>
     </div>
-    </br>
+    <br/>
     <div class="card-columns d-flex justify-content-center">
     <div class="card" style="">
         <div class="card-body">
@@ -94,6 +112,8 @@
                         </tr>
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
     </div>
@@ -101,41 +121,31 @@
 
 
 
-      {% if app.user.id != user.id %}
-    {% for friends in user.recipient %}
-        {% if app.user.id is not same as (friends.recipient.id) %}
-    {% for friends in user.sender %}
-        {% if app.user.id is not same as (friends.sender.id) %}
-      <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
-        {% endif %}
-    {% endfor %}
-        {% endif %}
-    {% endfor %}
-          {% endif %}
 
     <h1 style="text-align:center;">{{ user.name }}'s Posts</h1>
+
     <div class="card">
-        <div class="card-body">
-            <p class="card-text">
+        <div class="card-body" style="text-align:center;">
+            {% if app.user.id == user.id %}
 
-        {% if app.user.id == user.id %}
-
-            <td><a href="{{ path('posts_new', {'user_id': user.id}) }}">New post</a></td> <br/>
-        {% endif %}
-    <table class="table table-bordered mb-0" style="margin-top:-50px;">
+                <td><a href="{{ path('posts_new', {'user_id': user.id}) }}"><p style="text-align:center;">New post</a></td>
+            {% endif %}
+    <table class="table table-bordered mb-0">
     <thead class="thead-light">
+    {% if user.posts is not empty %}
     <tr>
         <th>Text</th>
         <th>Date/Time</th>
         {% if app.user.isSuper == "1" or app.user.id == 'user_id' %}
 
             <th>Admin actions</th>
+
         {% endif %}
         <th>Show</th>
     </tr>
     </thead>
     <tbody>
-
+    {% endif %}
     {% for posts in user.posts %}
 <tr>
     <td>{{ posts.text }}</td>
@@ -145,14 +155,15 @@
     {% if (app.user.isSuper == "1") or (app.user.id == 'user_id') %}
 
 
-        <td><a href="{{ path('profile_edit', {'id': user.id}) }}">Edit</a></td> <br/>
+        <td><a href="{{ path('profile_edit', {'id': user.id}) }}">Edit</a></td>
 
     {% endif %}
-    <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+    <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td>
     {% endfor %}
 </tr>
     </tbody>
     </table> <br/>
+            <p class="card-text" style="text-align:center;">
     <a href="{{ path('home') }}">Back to home</a>
     </div>
     </div>

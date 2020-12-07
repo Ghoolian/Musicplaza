@@ -24,56 +24,57 @@
         {% endfor %}
     {% endfor %}
 
-    <div class="card">
-        <div class="card-body">
 
-    <h4>Posts van vrienden</h4>
-    <table class="table table-bordered mb-0">
-    <thead class="thead-light">
-    <tr>
-        <th>Text</th>
-        <th>User</th>
-        <th>Date/Time</th>
-        <th>Show</th>
-    </tr>
-    </thead>
-    <tbody>
 
     {% for friends in app.user.sender %}
     {% if friends.acceptCheck == "1" %}
         {% for posts in friends.recipient.posts %}
             {% if app.user.id is not same as (friends.recipient.id) %}
-            <tr>
-            <td>{{ posts.text }}</td>
-            <td>{{ posts.user.name }}</td>
-            <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
-            <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+                <div class="card text-center">
+                    <div class="card-header" style="background-color: #80507b!important;">
+                        Creator:  <a href="{{  path('profile_show', {'id': posts.user.id}) }}" style="color:#6f2267;">{{ posts.user.name }}</a>
+                    </div>
+                    <div class="card-body">
+
+                        <p class="card-text">{{ posts.text }}</p>
+                        <a href="{{  path('posts_show', {'id': posts.id}) }}"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <div class="card-footer text-muted" style="background-color: #80507b!important;">
+                        {{ posts.created ? posts.created|date('Y-m-d H:i:s') }}
+                    </div>
+                </div> <br/>
+
             {% endif %}
         {% endfor %}
     {% endif %}
     {% endfor %}
+
 
     {% for friends in app.user.recipient %}
     {% if friends.acceptCheck == "1" %}
         {% for posts in friends.sender.posts %}
             {% if app.user.id is not same as (friends.sender.id) %}
+                <div class="card text-center">
+                    <div class="card-header" style="background-color: #80507b!important;">
+                       Creator:  <a href="{{  path('profile_show', {'id': posts.user.id}) }}" style="color:#6f2267;">{{ posts.user.name }}</a>
+                    </div>
+                    <div class="card-body">
 
-                <tr>
-                <td>{{ posts.text }}</td>
-                <td>{{ posts.user.name }}</td>
-                <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>
-                <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td> <br/>
+                        <p class="card-text">{{ posts.text }}</p>
+                        <a href="{{  path('posts_show', {'id': posts.id}) }}"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <div class="card-footer text-muted" style="background-color: #80507b!important;">
+                        {{ posts.created ? posts.created|date('Y-m-d H:i:s') }}
+                    </div>
+                </div> <br/> <br/>
+
             {% endif %}
         {% endfor %}
     {% endif %}
     {% endfor %}
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
 
     </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

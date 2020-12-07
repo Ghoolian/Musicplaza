@@ -2,21 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201207124801.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/113e764c4edc98df0516da3f741d0f47.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/440915bb3b45d9f9619233fbed82fa15.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/9ab46e302117bed900447ad71a9d4b05.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/ed6bbe2537f72aee25bd45dab1fceeb3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Musicplaza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicplaza.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FriendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FriendController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ProfileType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfileType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/friends/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends/search.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/friends/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/_form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/posts/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/posts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/inbox.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/inbox.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/authentication/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/authentication/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/authentication/check_register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/authentication/check_register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/authentication/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/authentication/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +205,10 @@
       <workItem from="1606299867630" duration="13916000" />
       <workItem from="1606380309459" duration="14223000" />
       <workItem from="1606466454044" duration="3391000" />
-      <workItem from="1606983352611" duration="3481000" />
+      <workItem from="1606983352611" duration="15221000" />
+      <workItem from="1607074731440" duration="3703000" />
+      <workItem from="1607098297408" duration="3000" />
+      <workItem from="1607329823915" duration="11234000" />
     </task>
     <servers />
   </component>
@@ -229,10 +242,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605101139421" />
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606468207383">
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607351840657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606468207383" />
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607351840657" />
     <state x="706" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605099150972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -253,10 +266,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-102" y="158" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606983728884" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606988978895">
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607011294641">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606988978895" />
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607011294641" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606469914685">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

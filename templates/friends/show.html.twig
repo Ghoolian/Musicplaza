@@ -27,8 +27,9 @@
             <th>Check profile</th>
         </tr>
         <tbody>
+        {% for user in results %}
+            {% if user.visible == 1 %}
         <tr>
-            {% for user in results %}
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
@@ -40,9 +41,10 @@
                 <td>{{ user.twitter }}</td>
                 <td>{{ user.discord }}</td>
                 <td>{{ user.facebook }}</td>
-                <td><a href="{{ path('profile_show', {'id': user.id}) }}">show</a></td>
-            {% endfor %}
+                <td  style="text-align:center;"><a href="{{ path('profile_show', {'id': user.id}) }}"><i class="fas fa-eye"></i></a></td>
         </tr>
+            {% endif %}
+        {% endfor %}
         </tbody>
     </table>
 

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -56,6 +57,9 @@ class ProfileType extends AbstractType
             ->add('twitter', TextType::class, ['required' => false])
             ->add('discord', TextType::class, ['required' => false])
             ->add('facebook', TextType::class, ['required' => false])
+            ->add('visible', CheckboxType::class, [
+                        'label'    => 'Show this entry publicly?',
+                        'required' => false])
             ->add('password', PasswordType::class)
             ->add('password_verify', PasswordType::class, [
                 'mapped' => false
