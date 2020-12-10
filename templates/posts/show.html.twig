@@ -13,13 +13,20 @@
     <br/>
     <tbody>
     <tr>
-        <th>Text</th>
-        <td>{{ posts.text }}</td>
-    </tr>
-    <tr>
         <th>Name</th>
         <td>{{ posts.user.name }}</td>
     </tr>
+
+    <tr>
+        <th>Text</th>
+        <td>{{ posts.text }}</td>
+    </tr>
+
+    <tr>
+        <th>Link</th>
+        <td>{{ posts.link }}</td>
+    </tr>
+
     <tr>
         <th>Date/Time</th>
         <td>{{ posts.created ? posts.created|date('Y-m-d H:i:s') }}</td>

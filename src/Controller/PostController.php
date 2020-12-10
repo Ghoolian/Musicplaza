@@ -43,6 +43,11 @@ class PostController extends AbstractController
         $form = $this->createForm(PostType::class, $posts);
         $form->handleRequest($request);
 
+        $link = $form->get('link')->getData();
+        if ($link) {
+            $this->getYoutubeEmbedUrl($link);
+        }
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($posts);
@@ -97,7 +102,10 @@ class PostController extends AbstractController
     {
         $form = $this->createForm(PostType::class, $posts);
         $form->handleRequest($request);
-
+        $link = $form->get('link')->getData();
+        if ($link){
+            $this->getYoutubeEmbedUrl($link);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -150,4 +158,17 @@ class PostController extends AbstractController
         ]);
     }
 
+    public function getYoutubeEmbedUrl($link){
+        $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
+        $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
+
+        if (preg_match($longUrlRegex, $link, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+        }
+
+        if (preg_match($shortUrlRegex, $link, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+        }
+        return $this->$link = 'https://www.youtube.com/embed/' . $youtube_id;
+    }
 }

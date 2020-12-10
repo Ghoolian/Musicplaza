@@ -19,21 +19,32 @@
             
             {% if app.user.id != user.id %}
                 {% for friends in user.recipient %}
-                    {% if app.user.id is not same as (friends.recipient.id) %}
-                        {% for friends in user.sender %}
-                            {% if app.user.id is not same as (friends.sender.id) %}
-                                <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
-                            {% endif %}
-                        {% endfor %}
+                    {{ dump(friends) }}
+                    {% if app.user.id in friends in user.sender %}
+                        {% if app.user.id in friends in user.recipient %}
+
+                    {% else %}
+                        <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
+                    {% endif %}
                     {% endif %}
                 {% endfor %}
-            {% endif %}
 
-            {% if user.recipient is empty %}
-                {% if user.sender is empty %}
-            <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
-            {% endif %}
+                {% for friends in user.sender %}
+                    {{ dump(friends) }}
+                    {% if app.user.id in friends in user.sender %}
+                        {% if app.user.id in friends in user.recipient %}
+
+                        {% else %}
+                            <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if user.recipient is empty and user.sender is empty %}
+                    <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
                 {% endif %}
+
+            {% endif %}
         </div>
     </div>
     <br/>
@@ -155,7 +166,7 @@
     {% if (app.user.isSuper == "1") or (app.user.id == 'user_id') %}
 
 
-        <td><a href="{{ path('profile_edit', {'id': user.id}) }}">Edit</a></td>
+        <td><a href="{{ path('posts_edit', {'id': posts.id}) }}">Edit</a></td>
 
     {% endif %}
     <td><a href="{{  path('posts_show', {'id': posts.id}) }}">Show</a></td>

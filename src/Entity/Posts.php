@@ -48,6 +48,11 @@ class Posts
      */
     private $replies;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Link;
+
 
 
     public function __construct(){
@@ -154,6 +159,18 @@ class Posts
                 $like->setPost(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->Link;
+    }
+
+    public function setLink(string $Link): self
+    {
+        $this->Link = $Link;
 
         return $this;
     }
