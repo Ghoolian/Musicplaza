@@ -19,6 +19,21 @@ class FriendsRepository extends ServiceEntityRepository
         parent::__construct($registry, Friends::class);
     }
 
+    public function RequestCheck($userId, $loggedInUserId){
+
+        $requestQuery = $this
+            // De u alias = user en de f/r alias = friends
+            ->createQueryBuilder('u')
+
+            ->leftJoin('u.Recipient', 'f')
+            ->leftJoin('u.Sender', 'r')
+            ->where('f.id = :user_id and r.id = :user_id2 or f.id = :user_id2 and r.id = :user_id')
+            ->setParameter('user_id', $userId)
+            ->setParameter('user_id2', $loggedInUserId)
+            ->getQuery();
+
+        return $requestQuery->getResult();
+    }
     // /**
     //  * @return Friends[] Returns an array of Friends objects
     //  */

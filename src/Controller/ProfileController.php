@@ -21,12 +21,19 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/{id}", name="profile_show", methods={"GET"})
      * @param User $user
+     * @param $friendcheck
      * @return Response
      */
     public function show(User $user): Response
     {
+        $loggedInUserId = $this->getUser();
+        $userId = $user;
+        $requestCheck = $this->getDoctrine()->getRepository(Friends::class)->RequestCheck($userId, $loggedInUserId);
+
+        
         return $this->render('profile/show.html.twig', [
-            'user' => $user
+            'user' => $user,
+            'requestCheck' => $requestCheck
         ]);
     }
 

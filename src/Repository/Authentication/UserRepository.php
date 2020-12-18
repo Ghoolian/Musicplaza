@@ -39,7 +39,6 @@ class UserRepository extends ServiceEntityRepository
 
     public function findUsersBySearch(string $input)
     {
-
         // "N" is een alias die wordt gebruikt voor de rest van de query.
         return $this->createQueryBuilder('n')
             ->where('n.name LIKE :input')

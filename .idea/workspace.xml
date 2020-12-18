@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/profilepictures/a5b2ad1191b6ce90e9b1b2dd4d8b0346.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Musicplaza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Musicplaza.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Authentication/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Authentication/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/FriendsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/FriendsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/posts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
     </list>
@@ -205,6 +197,12 @@
       <workItem from="1607329823915" duration="11234000" />
       <workItem from="1607425429600" duration="10318000" />
       <workItem from="1607597608447" duration="8197000" />
+      <workItem from="1607679642267" duration="1485000" />
+      <workItem from="1607934698164" duration="15039000" />
+      <workItem from="1608020140607" duration="4961000" />
+      <workItem from="1608116064886" duration="3626000" />
+      <workItem from="1608197332062" duration="15270000" />
+      <workItem from="1608279647119" duration="1563000" />
     </task>
     <servers />
   </component>
@@ -230,10 +228,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="187" y="162" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1604319926479" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607435586841">
+    <state x="400" y="375" key="#SQL_Resolution_Scopes" timestamp="1608029543298">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607435586841" />
+    <state x="400" y="375" key="#SQL_Resolution_Scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1608029543298" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608028562670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608028562670" />
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1604063956817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -250,10 +252,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="706" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1605099150972" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604500257336">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1608029540840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604500257336" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608029540840" />
     <state x="664" y="242" key="NewPhpClassDialog" timestamp="1605798625994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -262,25 +264,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604659018267" />
+    <state width="200" height="441" key="SqlResolveConfigurable" timestamp="1608029530774">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="200" height="441" key="SqlResolveConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1608029530774" />
     <state x="-102" y="158" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1606983728884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-102" y="158" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606983728884" />
-    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607608130183">
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608201986482">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607608130183" />
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608201986482" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606469914685">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606469914685" />
-    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1607602010299">
+    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1608206522928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607602010299" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605703577635">
+    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608206522928" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1607684252519">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605703577635" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607684252519" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608135826796">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608135826796" />
   </component>
 </project>

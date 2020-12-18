@@ -18,33 +18,11 @@
 
             
             {% if app.user.id != user.id %}
-                {% for friends in user.recipient %}
-                    {{ dump(friends) }}
-                    {% if app.user.id in friends in user.sender %}
-                        {% if app.user.id in friends in user.recipient %}
-
-                    {% else %}
+                {% if not requestCheck %}
                         <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
-                    {% endif %}
-                    {% endif %}
-                {% endfor %}
-
-                {% for friends in user.sender %}
-                    {{ dump(friends) }}
-                    {% if app.user.id in friends in user.sender %}
-                        {% if app.user.id in friends in user.recipient %}
-
-                        {% else %}
-                            <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-
-                {% if user.recipient is empty and user.sender is empty %}
-                    <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
                 {% endif %}
-
             {% endif %}
+
         </div>
     </div>
     <br/>
