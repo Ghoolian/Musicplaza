@@ -34,7 +34,6 @@ class FriendController extends AbstractController
         $input = $request->request->get('searchvalue');
         $results = $this->getDoctrine()->getRepository(User::class)->findUsersBySearch($input);
 
-
         return $this->render('friends/show.html.twig', [
             'results'=>$results
 

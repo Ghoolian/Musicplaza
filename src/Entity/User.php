@@ -127,7 +127,7 @@ class User implements UserInterface
     private $Facebook;
 
     /**
-     * @ORM\OneToMany(targetEntity=Posts::class, mappedBy="User", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Posts::class, mappedBy="User", orphanRemoval=true, fetch="EAGER")
      * @ORM\OrderBy({"created" = "DESC"})
      */
     private $posts;
@@ -169,6 +169,11 @@ class User implements UserInterface
      */
     private $visible;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Chats::class, mappedBy="User1")
+     */
+    private $chats;
+
 
     public function __construct()
     {
@@ -184,6 +189,7 @@ class User implements UserInterface
         $this->recipient = new ArrayCollection();
         $this->sender = new ArrayCollection();
         $this->visible = "1";
+        $this->chats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -714,6 +720,36 @@ class User implements UserInterface
     public function setVisible(bool $visible): self
     {
         $this->visible = $visible;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Chats[]
+     */
+    public function getChats(): Collection
+    {
+        return $this->chats;
+    }
+
+    public function addChat(Chats $chat): self
+    {
+        if (!$this->chats->contains($chat)) {
+            $this->chats[] = $chat;
+            $chat->setUser1($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChat(Chats $chat): self
+    {
+        if ($this->chats->removeElement($chat)) {
+            // set the owning side to null (unless already changed)
+            if ($chat->getUser1() === $this) {
+                $chat->setUser1(null);
+            }
+        }
 
         return $this;
     }

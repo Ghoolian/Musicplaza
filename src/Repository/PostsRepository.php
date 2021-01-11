@@ -19,6 +19,17 @@ class PostsRepository extends ServiceEntityRepository
         parent::__construct($registry, Posts::class);
     }
 
+    public function PostCheck($loggedInUserId){
+        $postQuery = $this
+            // De p en de c alias = posts
+            ->createQueryBuilder('p')
+            ->leftJoin('p.User', 'c')
+            ->where('c.id != :user_id')
+            ->setParameter('user_id', $loggedInUserId)
+            ->getQuery();
+        return $postQuery->getResult();
+    }
+
     // /**
     //  * @return Posts[] Returns an array of Posts objects
     //  */

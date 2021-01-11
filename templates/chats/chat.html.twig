@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat with {% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1 style="text-align:center;"> Create a new post</h1>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">
+                {{ include('posts/_form.html.twig') }}
+                <br/>
+                <a href="{{ path('profile_show',{'id': app.user.id}) }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

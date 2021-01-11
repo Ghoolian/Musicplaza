@@ -37,5 +37,17 @@
     </tbody>
 </table>
     </div>
-    </div>
+    </div> <br/>
+    <h1 style="text-align:center;">Chats</h1>
+            {% for friends in user.sender %}
+                <div class="card text-center">
+                <div class="card-body">
+                    {{ friends.recipient.name }} <br/>
+
+                    <a href="{{ path('chatrequest', {'id': friends.id}) }}">Chat</a>
+                </div>
+                </div>
+                <br/>
+            {% endfor %}
+
 {% endblock %}

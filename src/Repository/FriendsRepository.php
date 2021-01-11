@@ -34,6 +34,21 @@ class FriendsRepository extends ServiceEntityRepository
 
         return $requestQuery->getResult();
     }
+
+    public function HomeCheck($loggedInUserId){
+
+        $homeQuery = $this
+            // De u alias = user en de f/r alias = friends
+            ->createQueryBuilder('u')
+            ->leftJoin('u.Recipient', 'f')
+            ->leftJoin('u.Sender', 'r')
+            ->where('f.id = :user_id and u.AcceptCheck = true or r.id = :user_id and u.AcceptCheck = true')
+            ->setParameter('user_id', $loggedInUserId)
+
+            ->getQuery();
+        return $homeQuery->getResult();
+    }
+
     // /**
     //  * @return Friends[] Returns an array of Friends objects
     //  */
