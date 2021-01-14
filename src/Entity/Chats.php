@@ -15,7 +15,7 @@ class Chats
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $chatid;
+    private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="chats")
@@ -24,7 +24,7 @@ class Chats
     private $User1;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="chats")
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $User2;
@@ -43,9 +43,9 @@ class Chats
         $this->Created = new \DateTime('now');
     }
 
-    public function getChatId(): ?int
+    public function getId(): ?int
     {
-        return $this->chatid;
+        return $this->id;
     }
 
     public function getUser1(): ?User

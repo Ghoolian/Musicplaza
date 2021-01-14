@@ -28,13 +28,13 @@ class Friends
     private $Visible;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipient")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipient", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $Recipient;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sender")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sender", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $Sender;

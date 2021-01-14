@@ -2,19 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210106113011.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210111160205.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ChatController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Chats.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ChatsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/chats/chat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ChatType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/chats/form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201102122638.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201105151826.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201106152837.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201109081443.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201110144037.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201112105950.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201112154650.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201119104508.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201119143148.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201123132816.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201123132859.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201123134757.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201207124801.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201210133538.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210106113011.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210111160205.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ChatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FriendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FriendController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Chats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Friends.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Friends.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Authentication/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Authentication/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/FriendsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/FriendsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PostsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ChatsRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chats/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chats/chat.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/inbox.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/inbox.html.twig" afterDir="false" />
     </list>
@@ -156,13 +171,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\src\Form" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\templates\profile" />
       <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\templates" />
       <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\src\Controller\Authentication" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Programmeren\XAMPP\htdocs\musicplaza\src\Form" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -218,6 +233,9 @@
       <workItem from="1610010723596" duration="9936000" />
       <workItem from="1610100094624" duration="1527000" />
       <workItem from="1610354108674" duration="16279000" />
+      <workItem from="1610439587766" duration="6960000" />
+      <workItem from="1610531361349" duration="9606000" />
+      <workItem from="1610614153682" duration="16597000" />
     </task>
     <servers />
   </component>
@@ -247,10 +265,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="400" y="375" key="#SQL_Resolution_Scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1608029543298" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608028562670">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610441938133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608028562670" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610441938133" />
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1604063956817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -259,10 +277,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605101139421" />
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610377609613">
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610623398763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610377609613" />
+    <state x="210" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610623398763" />
     <state x="706" y="364" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605099150972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -271,10 +289,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608029540840" />
-    <state x="664" y="242" key="NewPhpClassDialog" timestamp="1609946473877">
+    <state x="664" y="242" key="NewPhpClassDialog" timestamp="1610445675197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="664" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609946473877" />
+    <state x="664" y="242" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610445675197" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1604659018267">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -287,10 +305,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-102" y="158" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606983728884" />
-    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610382760526">
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610623698688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610382760526" />
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610623698688" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606469914685">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -299,10 +317,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="697" y="327" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610380650519" />
-    <state x="186" y="256" width="587" height="534" key="find.popup" timestamp="1610034099145">
+    <state x="983" y="390" width="587" height="564" key="find.popup" timestamp="1610547321522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="186" y="256" width="587" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610034099145" />
+    <state x="983" y="390" width="587" height="564" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610547321522" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1607684252519">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

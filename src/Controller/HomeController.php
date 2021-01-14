@@ -23,7 +23,7 @@ class HomeController extends AbstractController
         $homeCheck = $this->getDoctrine()->getRepository(Friends::class)->HomeCheck($loggedInUserId);
         $friendposts = [];
         foreach($homeCheck as $hCheck) {
-            $p = [];
+
             if($hCheck->getRecipient()->getId()!=$this->getUser()->getId()) {
                 $User = $this->getDoctrine()->getRepository(User::class)->find($hCheck->getRecipient()->getId());
 

@@ -57,7 +57,7 @@ class FriendController extends AbstractController
         $entityManager->flush();
         $this->addFlash("success", "You have sent them a friend request.");
         return $this->redirectToRoute('home', [
-            'id' => $user->getID(),
+            'user' => $user->getID(),
         ]);
     }
 

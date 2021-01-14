@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}{{ user.name }}'s Inbox{% endblock %}
+    {% block title %}{{ user.username }}'s Inbox{% endblock %}
 
 {% block body %}
 
     <div class="page-header">
-        <h1 style="text-align:center;"> {{ user.name }}'s inbox </h1>
+        <h1 style="text-align:center;"> {{ user.username }}'s inbox </h1>
     </div>
     <div class="card">
     <div class="card-body">
@@ -19,8 +19,8 @@
     </thead>
     <tbody>
 
-    {% for friends in user.recipient %}
-        {% if user.id is same as(friends.recipient.id) %}
+    {% for friends in app.user %}
+        {% if app.user.id is same as(friends.recipient.id) %}
             {% if friends.visible == 1 %}
     <tr>
         <td>{{ friends.sender.name }}</td>
@@ -39,12 +39,17 @@
     </div>
     </div> <br/>
     <h1 style="text-align:center;">Chats</h1>
-            {% for friends in user.sender %}
+            {% for friend in homeCheck %}
                 <div class="card text-center">
                 <div class="card-body">
-                    {{ friends.recipient.name }} <br/>
+            {% if app.user.id != friend.sender.id %}
+                    {{ friend.sender.name }} <br/>
+                    <a href="{{ path('chat_show', {'id': friend.sender.id }) }}">Chat</a>
+            {% else %}
+                    {{ friend.recipient.name }} <br/>
+                    <a href="{{ path('chat_show', {'id': friend.recipient.id }) }}">Chat</a>
 
-                    <a href="{{ path('chatrequest', {'id': friends.id}) }}">Chat</a>
+            {% endif %}
                 </div>
                 </div>
                 <br/>

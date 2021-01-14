@@ -145,12 +145,12 @@ class User implements UserInterface
     private $replies;
 
     /**
-     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Recipient", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Recipient", orphanRemoval=true, fetch="EAGER")
      */
     private $recipient;
 
     /**
-     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Sender", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="Sender", orphanRemoval=true, fetch="EAGER")
      */
     private $sender;
 
@@ -175,6 +175,7 @@ class User implements UserInterface
     private $chats;
 
 
+
     public function __construct()
     {
         $this->created = new DateTime('now');
@@ -190,6 +191,7 @@ class User implements UserInterface
         $this->sender = new ArrayCollection();
         $this->visible = "1";
         $this->chats = new ArrayCollection();
+
     }
 
     public function getId(): ?int

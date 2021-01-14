@@ -19,6 +19,21 @@ class ChatsRepository extends ServiceEntityRepository
         parent::__construct($registry, Chats::class);
     }
 
+    public function ChatCheck($user1, $user2){
+        $chatQuery = $this
+            // De u alias = Chat en de f/r alias = Chat users
+            ->createQueryBuilder('u')
+            ->leftJoin('u.User1', 'f')
+            ->leftJoin('u.User2', 'r')
+            ->where('f.id = :user_id and r.id = :user2_id or f.id = :user2_id and r.id = :user_id')
+            ->setParameter('user_id', $user1)
+            ->setParameter('user2_id', $user2)
+            ->getQuery();
+
+        return $chatQuery->getResult();
+    }
+
+
     // /**
     //  * @return Chats[] Returns an array of Chats objects
     //  */

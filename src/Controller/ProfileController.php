@@ -119,15 +119,17 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("friends/inbox/{id}", name="friendinbox", methods={"GET"})
+     * @Route("friends/inbox/", name="friendinbox", methods={"GET"})
      * @param User $user
      * @return Response
      */
-    public function showInbox(User $user): Response
+    public function showInbox(): Response
     {
-
+        $loggedInUserId = $this->getUser();
+        $homeCheck = $this->getDoctrine()->getRepository(Friends::class)->HomeCheck($loggedInUserId);
         return $this->render('profile/inbox.html.twig', [
-            'user' => $user
+            'user' => $this->getUser(),
+            'homeCheck' => $homeCheck
         ]);
     }
 
