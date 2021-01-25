@@ -1,25 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ chats.user1.name }}{% endblock %}
+{% block title %}Musicplaza / {{ chats.user1.name }}{% endblock %}
 
 {% block body %}
+
     <div class="page-header">
         <h1 style="text-align:center;"> Chat with {{ chats.user1.name }} </h1>
     </div>
-    <div class="card">
-        <div class="card-body">
-            <p class="card-text">
+
 
                 {% for message in chatmessages %}
-
-                    {{ message.user2.name }} <br/>
-                    {{ message.text }} <br/>
-                    {{ message.created ? message.created|date('Y-m-d H:i:s') }} <br/> <br/>
-
+                    {% if message.user2.id == app.user.id %}
+                        <div class="container" style="padding-right:52.5%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <img src="{{ asset('images/profilepictures/' ~ message.user2.profilepicture) }}" alt="No profile picture found." style="max-width: 75px; max-height:100px;">
+                               {{ message.user2.name }} <br/>
+                               {{ message.text }} <br/>
+                               {{ message.created ? message.created|date('Y-m-d H:i:s') }}
+                                </p>
+                           </div>
+                       </div>
+                        </div> <br/>
+                    {% else %}
+                        <div class="container" style="padding-left:52.5%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">
+                            <img src="{{ asset('images/profilepictures/' ~ message.user2.profilepicture) }}" alt="No profile picture found." style="max-width: 75px; max-height:100px;">
+                            {{ message.user2.name }} <br/>
+                            {{ message.text }} <br/>
+                            {{ message.created ? message.created|date('Y-m-d H:i:s') }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <br/>
+                    {% endif %}
                 {% endfor %}
+
+
                 {{ include('chats/form.html.twig') }}
                 <br/>
                 <a href="{{ path('friendinbox',{'id': app.user.id}) }}">Back to inbox</a>
-        </div>
-    </div>
+
 {% endblock %}

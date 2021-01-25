@@ -8,6 +8,7 @@
     <div class="card" style="">
         <div class="card-body">
             <p class="card-text" style="text-align:center;">
+                {% if(user.visible == 1) or (requestCheck) or(user.id == app.user.id) %}
                 <img src="{{ asset('images/profilepictures/' ~ user.profilepicture) }}" alt="No profile picture found." style="width: 250px; ">
                 <h1 style="text-align:center;">{{ user.firstname }} {{ user.lastname }}</h1>
             {% if app.user.id == user.id %}
@@ -20,6 +21,14 @@
             {% if app.user.id != user.id %}
                 {% if not requestCheck %}
                         <td><a href="{{ path('friendrequest', {'id': user.id}) }}">Send Friend Request</a></td>
+                {% endif %}
+                {% if requestCheck %}
+                <h5 style="text-align:center;">
+                    Chat with your friend, {{ user.name }} <br/>
+                    <a href="{{ path('chat_show', {'id': user.id }) }}">Chat</a>
+
+                </h5>
+
                 {% endif %}
             {% endif %}
 
@@ -154,6 +163,9 @@
     </table> <br/>
             <p class="card-text" style="text-align:center;">
     <a href="{{ path('home') }}">Back to home</a>
+                {% else %}
+                    This user's profile is hidden, so you cannot interact with their profile unless they've sent you a friend request that you've accepted.
+                {% endif %}
     </div>
     </div>
     <br/>

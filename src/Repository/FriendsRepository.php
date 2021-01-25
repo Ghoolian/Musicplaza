@@ -36,7 +36,6 @@ class FriendsRepository extends ServiceEntityRepository
     }
 
     public function HomeCheck($loggedInUserId){
-
         $homeQuery = $this
             // De u alias = user en de f/r alias = friends
             ->createQueryBuilder('u')

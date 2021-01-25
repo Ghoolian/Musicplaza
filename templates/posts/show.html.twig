@@ -11,6 +11,7 @@
     <div class="card-body" >
     <table class="table">
     <br/>
+        {% if posts.user.visible == 1 %}
     <tbody>
     <tr>
         <th>Name</th>
@@ -25,9 +26,11 @@
     <tr>
         <th>Link</th>
         <td>
-        <iframe width="420" height="315"
-                src="{{ posts.link }}">
-        </iframe>
+            {% if posts.link == true %}
+                <iframe width="50%" height="100%"
+                        src="{{ posts.link }}">
+                </iframe> <br/>
+            {% endif %}
         </td>
     </tr>
 
@@ -41,10 +44,13 @@
     <table>
         <tbody>
         <tr>
-        <th>Replies</th>
+        <th>Replies:</th>
+        </tr>
             {% for replies in posts.replies %}
-
-        <td>{{ replies.text }},</td>
+                <tr>
+        <td><img src="{{ asset('images/profilepictures/' ~ replies.user.profilepicture) }}" alt="No profile picture found." style="max-width: 75px; max-height:75px;"></td>
+        <td>{{ replies.user.name }}:</td>
+        <td>{{ replies.text }}</td>
             {% endfor %}
         </tr>
         </tbody>
@@ -55,12 +61,18 @@
         {% endfor %}
     {% endfor %}
     <br/>
-    This post is liked by:
+        <table>
+            <tbody>
+            <tr>
+                <th>This post is liked by:</th>
+            </tr>
     {% for likes in posts.likes %}
-    <td>{{ likes.user.username}},</td>
+            <tr>
+                <td><img src="{{ asset('images/profilepictures/' ~ likes.user.profilepicture) }}" alt="No profile picture found." style="max-width: 75px; max-height:75px;"> {{ likes.user.username}} </td>
     {% endfor %}
-
-
+            </tr>
+            </tbody>
+        </table>
     {% if app.user.liked(posts) == true %}
         <form action="{{ path('Unlike', {'id': posts.id}) }}">
             <button type="submit" value="like"><i class="fas fa-thumbs-up"></i> Unlike this post</button>
@@ -78,5 +90,7 @@
         </form>
     </div>
     </div>
-
+    {% else %}
+    This post's user is hidden, so you cannot interact with this post unless you're friends with them.
+    {% endif %}
 {% endblock %}

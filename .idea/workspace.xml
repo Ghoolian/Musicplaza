@@ -2,36 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2d8b48-8eab-489a-870c-0914a60022e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/ChatType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/chats/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201102122638.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201105151826.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201106152837.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201109081443.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201110144037.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201112105950.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201112154650.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201119104508.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201119143148.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201123132816.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201123132859.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201123134757.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201207124801.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201210133538.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210106113011.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210111160205.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ChatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FriendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FriendController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Chats.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Friends.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Friends.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ChatsRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/FriendsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/FriendsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PostsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/chats/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chats/chat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/friends/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/friends/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/inbox.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/inbox.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +219,12 @@
       <workItem from="1610354108674" duration="16279000" />
       <workItem from="1610439587766" duration="6960000" />
       <workItem from="1610531361349" duration="9606000" />
-      <workItem from="1610614153682" duration="16597000" />
+      <workItem from="1610614153682" duration="17820000" />
+      <workItem from="1610709658953" duration="2997000" />
+      <workItem from="1610959097968" duration="10029000" />
+      <workItem from="1611042124440" duration="7111000" />
+      <workItem from="1611132125526" duration="2090000" />
+      <workItem from="1611564360095" duration="12257000" />
     </task>
     <servers />
   </component>
@@ -301,14 +290,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="200" height="441" key="SqlResolveConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1608029530774" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1610641046986">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1610641046986" />
     <state x="-102" y="158" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1606983728884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-102" y="158" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606983728884" />
-    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610623698688">
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1611581168280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610623698688" />
+    <state x="92" y="92" width="1820" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611581168280" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606469914685">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -317,14 +310,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="697" y="327" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610380650519" />
-    <state x="983" y="390" width="587" height="564" key="find.popup" timestamp="1610547321522">
+    <state x="983" y="390" width="587" height="564" key="find.popup" timestamp="1611581487469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="983" y="390" width="587" height="564" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610547321522" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1607684252519">
+    <state x="983" y="390" width="587" height="564" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611581487469" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1611043282864">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607684252519" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611043282864" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608135826796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

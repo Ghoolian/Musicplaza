@@ -7,6 +7,7 @@
     <div class="page-header">
         <h1 style="text-align:center;"> {{ user.username }}'s inbox </h1>
     </div>
+
     <div class="card">
     <div class="card-body">
     <p class="card-text">
@@ -19,13 +20,11 @@
     </thead>
     <tbody>
 
-    {% for friends in app.user %}
+    {% for friends in app.user.recipient %}
         {% if app.user.id is same as(friends.recipient.id) %}
             {% if friends.visible == 1 %}
     <tr>
         <td>{{ friends.sender.name }}</td>
-
-
         <td>
                 <a href="{{ path('friendaccept', {'id': friends.id}) }}">Accept</a>
                 <a href="{{ path('frienddecline', {'id': friends.id}) }}">Decline</a>
@@ -39,6 +38,7 @@
     </div>
     </div> <br/>
     <h1 style="text-align:center;">Chats</h1>
+
             {% for friend in homeCheck %}
                 <div class="card text-center">
                 <div class="card-body">

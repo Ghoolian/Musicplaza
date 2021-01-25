@@ -30,6 +30,18 @@ class PostsRepository extends ServiceEntityRepository
         return $postQuery->getResult();
     }
 
+    public function findPostsBySearch(string $input)
+    {
+        // "N" is een alias die wordt gebruikt voor de rest van de query.
+        return $this->createQueryBuilder('n')
+            ->where('n.Text LIKE :input')
+            ->setParameter(':input', '%'.$input.'%')
+            ->orderBy('n.Text', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+    }
+
     // /**
     //  * @return Posts[] Returns an array of Posts objects
     //  */

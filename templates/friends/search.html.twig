@@ -4,7 +4,7 @@
 
 {% block body %}
         <div class="page-header">
-            <h1 style="text-align:center;"> Search all users </h1>
+            <h1 style="text-align:center;"> Search users/posts</h1>
         </div> <br/>
     <div class="card">
     <div class="card-body">
@@ -13,7 +13,7 @@
 
     {% if app.user %}
         <form method="post" action="{{ path('friendsearch') }}">
-        <label for="searchvalue">Search users:</label><br>
+        <label for="searchvalue">Search users/posts:</label><br>
         <input type="text" id="searchvalue" name="searchvalue"><br><br>
         <input type="submit" value="Search">
     {% endif %}

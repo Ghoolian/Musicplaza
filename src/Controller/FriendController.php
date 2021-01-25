@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use App\Entity\Posts;
 use App\Entity\Friends;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,11 +33,11 @@ class FriendController extends AbstractController
     public function search(Request $request)
     {
         $input = $request->request->get('searchvalue');
-        $results = $this->getDoctrine()->getRepository(User::class)->findUsersBySearch($input);
-
+        $userresults = $this->getDoctrine()->getRepository(User::class)->findUsersBySearch($input);
+        $postresults = $this->getDoctrine()->getRepository(Posts::class)->findPostsBySearch($input);
         return $this->render('friends/show.html.twig', [
-            'results'=>$results
-
+            'userresults'=>$userresults,
+            'postresults'=>$postresults
         ]);
 
     }
